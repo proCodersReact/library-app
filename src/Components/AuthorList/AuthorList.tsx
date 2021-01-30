@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Container, Row} from 'react-bootstrap';
+import {Col, Row} from 'react-bootstrap';
 
 class AuthorList extends Component{
     render(){
@@ -7,7 +7,7 @@ class AuthorList extends Component{
             <Row className={"authors"}>
                 <Col>
                     <h2>Authors</h2>
-                    <hr className="author-title mt-2" />
+                    <hr className="author-title mt-1 mb-4" />
                 </Col>
             </Row>
         );
