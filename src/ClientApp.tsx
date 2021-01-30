@@ -1,12 +1,17 @@
 import React from "react";
 import ReadingArea from "./components/ReadingArea";
+import {Col, Container, Row} from "react-bootstrap";
+import BookListArea from "./components/BookListArea";
 
 const ClientApp: React.FC = () => {
     return(
-        <div>
+        <Container className='welcome-area' fluid={true}>
             <ReadingArea/>
-            <p>This is ClientApp.tsx. import other components here</p>
-        </div>
+            <Row>
+                <Col sm={6} className='p-0'><BookListArea/></Col>
+                <Col sm={6} className='p-0'>Author List</Col>
+            </Row>
+        </Container>
 
     )
 };
