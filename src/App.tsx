@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import AuthorList from './Components/AuthorList/AuthorList'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AuthorList from './Components/AuthorList/AuthorList';
 
 function App() {
   return (

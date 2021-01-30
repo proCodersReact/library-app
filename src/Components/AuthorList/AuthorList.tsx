@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import {Container} from 'react-bootstrap';
 
 class AuthorList extends Component{
     render(){
         return(
             <div>
-                <h5>hello this is from Author List Component</h5>
+                <Container>
+                    <h1 className={"text-left"}>Authors</h1><hr/>
+                </Container>
             </div>
         );
     }
