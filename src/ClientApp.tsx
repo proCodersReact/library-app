@@ -1,8 +1,8 @@
 import React from "react";
-import ReadingArea from "./Components/ReadingArea";
+import ReadingArea from "./components/ReadingArea";
 import {Col, Container, Row} from "react-bootstrap";
-import BookListArea from "./Components/BookListArea";
-import AuthorList from "./Components/AuthorList/AuthorList";
+import BookListArea from "./components/BookList/BookListArea";
+import AuthorList from "./components/AuthorList/AuthorList";
 
 const ClientApp: React.FC = () => {
     return(
