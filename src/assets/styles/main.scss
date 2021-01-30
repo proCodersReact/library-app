@@ -1,4 +1,9 @@
+// import all separate _something.scss files here. this will link with App.tsx.
+
 @import "~bootstrap/scss/bootstrap";
 
-@import "theme/_theme";
-@import "page/_authors";
+@import "theme/theme";
+
+@import "areas/reading-area";
+
+@import "areas/booklist";
