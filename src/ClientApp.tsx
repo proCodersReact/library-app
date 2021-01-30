@@ -1,7 +1,8 @@
 import React from "react";
-import ReadingArea from "./components/ReadingArea";
+import ReadingArea from "./Components/ReadingArea";
 import {Col, Container, Row} from "react-bootstrap";
-import BookListArea from "./components/BookListArea";
+import BookListArea from "./Components/BookListArea";
+import AuthorList from "./Components/AuthorList/AuthorList";
 
 const ClientApp: React.FC = () => {
     return(
@@ -9,7 +10,7 @@ const ClientApp: React.FC = () => {
             <ReadingArea/>
             <Row>
                 <Col sm={6} className='p-0'><BookListArea/></Col>
-                <Col sm={6} className='p-0'>Author List</Col>
+                <Col sm={6} className='p-0'><AuthorList/></Col>
             </Row>
         </Container>
 
