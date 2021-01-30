@@ -4,7 +4,12 @@ import Author from "./Author";
 class AuthorAddedList extends Component{
     render(){
         return(
-            <Author/>
+            <div>
+                <Author/>
+                <Author/>
+                <Author/>
+            </div>
+
         );
     }
 }
