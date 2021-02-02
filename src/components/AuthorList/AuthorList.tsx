@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Button, Col, Container, Row} from 'react-bootstrap';
 import AuthorAddedList from "./AuthorAddedList";
 import {Plus} from "react-feather";
+import AuthorForm from "./AuthorForm";
 
 class AuthorList extends Component{
     render(){
@@ -17,7 +18,7 @@ class AuthorList extends Component{
                 <Row className='mx-0 mt-3 mb-4 add-btn'>
                     <Button variant='light' className="text-right p-0 flex-row"><Plus size={21} color='#234479'/>   Add Author</Button>
                 </Row>
-
+                <AuthorForm/>
 
             </Container>
         );
