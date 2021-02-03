@@ -1,13 +1,17 @@
 import React, {Component} from 'react'
 import Author from "./Author";
+import {Col} from 'react-bootstrap';
 
 class AuthorAddedList extends Component{
     render(){
         return(
             <div>
-                <Author/>
-                <Author/>
-                <Author/>
+                <Col className={"mt-2"}>
+                    <Author/>
+                    <Author/>
+                    <Author/>
+                </Col>
+
             </div>
 
         );
