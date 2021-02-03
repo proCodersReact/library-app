@@ -12,6 +12,9 @@ const AuthorAddedList:React.FC<AuthorsListProps> = (props) =>{
     const {authors} = props;
 
     const renderAuthors = () =>{
+        if(authors.length === 0){
+            return <p><i>No authors listed here</i></p>
+        }
       return authors.map((author:IAuthor, Index:number)=>{
           return <Author author={author} key={Index}/>
       })
