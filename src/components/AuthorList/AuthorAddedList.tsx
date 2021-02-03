@@ -3,9 +3,13 @@ import Author from "./Author";
 import {Col} from 'react-bootstrap';
 import {IAuthor} from "../../assets/types/LibraryTypes";
 
-const AuthorAddedList:React.FC = () =>{
+type AuthorsListProps = {
+    authors:IAuthor[]
+}
 
-    const authors:IAuthor[] = [{name:"John Doe"},{name:"Jane Doe"},{name:"Jeewantha Lahiru"}];
+const AuthorAddedList:React.FC<AuthorsListProps> = (props) =>{
+
+    const {authors} = props;
 
     const renderAuthors = () =>{
       return authors.map((author:IAuthor, Index:number)=>{
