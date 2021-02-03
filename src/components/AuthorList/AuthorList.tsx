@@ -28,11 +28,17 @@ const AuthorList = () => {
         setauthors(allAuthors);
     };
 
+    const handleAuthorDeleted = (index: number) =>{
+        const allAuthors:IAuthor[] = authors.slice();
+        allAuthors.splice(index,1);
+        setauthors(allAuthors)
+    }
+
     return(
 
         <Container fluid={true} className={"authors"}>
             <AuthorWelcome/>
-            <AuthorAddedList authors={authors}/>
+            <AuthorAddedList authors={authors} onDeleted={handleAuthorDeleted}/>
             <CreateAuthor onClickCreate={handleOnCreateClick}/>
             {isFormVisible && <AuthorForm onClose={handleOnFormClosed} onAuthorAdded={handleAuthorAdded}/>}
         </Container>

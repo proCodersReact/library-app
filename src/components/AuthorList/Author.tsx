@@ -3,19 +3,21 @@ import {Col, Row} from 'react-bootstrap';
 import {IAuthor} from "../../assets/types/LibraryTypes";
 
 type AuthorProps = {
+    index: number,
     author:IAuthor
+    onDeleted: (index:number) =>void
 }
 
 const Author:React.FC<AuthorProps> = (props) =>{
-    const {author} = props;
+    const {author,onDeleted,index} = props;
     return(
         <Row className={"author pt-1 pl-0"}>
             <Col xs={9} className={"pl-0"}>
-                <label>{author.name}</label>
+                <label>{index+1}. {author.name}</label>
             </Col>
             <Col xs={3} className={"text-right author-icon"}>
                 <i className={"feather icon-edit text-warning mr-2"}/>
-                <i className={"feather icon-trash-2 text-danger"}/>
+                <i className={"feather icon-trash-2 text-danger"} onClick={()=>onDeleted(index)}/>
             </Col>
         </Row>
     )
