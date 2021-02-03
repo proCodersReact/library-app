@@ -1,23 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Row, Col, Form, Button} from 'react-bootstrap';
+import {IAuthor} from "../../assets/types/LibraryTypes";
 
-const AuthorForm:React.FC = () =>{
+type CreateFormProps = {
+    onClose: () => void,
+    onAuthorAdded: (author:IAuthor)=>void
+}
+
+const AuthorForm:React.FC<CreateFormProps> = (props) =>{
+
+    const [authorName, setAuthorName] = useState<string|null>(null);
+    const handleOnNameChange = (name:string)=>{
+        setAuthorName(name);
+    }
+    const handleOnCreate = () =>{
+
+        if(!authorName){
+            return;
+        }
+
+        const newAuthor: IAuthor = {name:authorName};
+        props.onAuthorAdded(newAuthor);
+    };
+
     return(
         <Row>
             <Col xs={12} md={9} className={"create-form"}>
                 <Row>
                     <Col xs={12}>
                         <label className={"create-title"}>Create Author</label>
-                        <i className="feather icon-x-circle float-right mt-2"/>
+                        <i className="feather icon-x-circle float-right mt-2" onClick={props.onClose}/>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12} lg={{span:11, offset:1}}>
                         <Form.Label className={"mb-0"}>Name of the Author</Form.Label>
-                        <Form.Control size={"sm"}/>
+                        <Form.Control size={"sm"}
+                                      onChange={
+                                          (event:React.ChangeEvent<HTMLInputElement>)=>
+                                              handleOnNameChange(event.target.value)
+                                      }
+                                      value={authorName?authorName:''}
+                        />
                     </Col>
                     <Col xs={12} className={"text-right pt-2"}>
-                        <Button variant={"primary"} size={"sm"} className={"px-3 pt-1"}>Create</Button>
+                        <Button variant={"primary"} size={"sm"} className={"px-3 pt-1"}
+                                onClick={handleOnCreate}
+                        >Create</Button>
                     </Col>
                 </Row>
             </Col>

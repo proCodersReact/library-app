@@ -1,28 +1,42 @@
-import React, {Component} from 'react';
-import {Button, Col, Container, Row} from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Container} from 'react-bootstrap';
 import AuthorAddedList from "./AuthorAddedList";
-import {Plus} from "react-feather";
 import AuthorForm from "./AuthorForm";
+import AuthorWelcome from "./AuthorWelcome";
+import CreateAuthor from "./CreateAuthor";
+import {IAuthor} from "../../assets/types/LibraryTypes";
 
-class AuthorList extends Component{
-    render(){
-        return(
-            <Container fluid={true} className={"authors"}>
-                <Row as='h3' className='book-list-title pb-1 mt-1 mb-4 mx-1'>
-                    Authors
-                </Row>
 
-                <Col className='mt-2'>
-                    <AuthorAddedList/>
-                </Col>
-                <Row className='mx-0 mt-3 mb-4 add-btn'>
-                    <Button variant='light' className="text-right p-0 flex-row"><Plus size={21} color='#234479'/>   Add Author</Button>
-                </Row>
-                <AuthorForm/>
+const AuthorList = () => {
 
-            </Container>
-        );
+    const initAuthors:IAuthor[] = [];
+    const [authors, setauthors] = useState<IAuthor[]>(initAuthors);
+
+    const [isFormVisible, setIsFormVisible ] = useState(false);
+
+    const handleOnCreateClick = () =>{
+      setIsFormVisible(!isFormVisible);
+    };
+
+    const handleOnFormClosed = () =>{
+        setIsFormVisible((false));
     }
-}
+
+    const handleAuthorAdded = (newAuthor:IAuthor) => {
+        const allAuthors:IAuthor[] = authors.slice();
+        allAuthors.push(newAuthor)
+        setauthors(allAuthors);
+    };
+
+    return(
+
+        <Container fluid={true} className={"authors"}>
+            <AuthorWelcome/>
+            <AuthorAddedList authors={authors}/>
+            <CreateAuthor onClickCreate={handleOnCreateClick}/>
+            {isFormVisible && <AuthorForm onClose={handleOnFormClosed} onAuthorAdded={handleAuthorAdded}/>}
+        </Container>
+    )
+};
 
 export default AuthorList;
