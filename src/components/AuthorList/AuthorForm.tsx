@@ -1,14 +1,18 @@
 import React from 'react';
 import {Row, Col, Form, Button} from 'react-bootstrap';
 
-const AuthorForm:React.FC = () =>{
+type CreateFormProps = {
+    onClose: () => void
+}
+
+const AuthorForm:React.FC<CreateFormProps> = (props) =>{
     return(
         <Row>
             <Col xs={12} md={9} className={"create-form"}>
                 <Row>
                     <Col xs={12}>
                         <label className={"create-title"}>Create Author</label>
-                        <i className="feather icon-x-circle float-right mt-2"/>
+                        <i className="feather icon-x-circle float-right mt-2" onClick={props.onClose}/>
                     </Col>
                 </Row>
                 <Row>

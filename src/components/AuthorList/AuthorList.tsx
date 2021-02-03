@@ -13,13 +13,17 @@ const AuthorList = () => {
       setIsFormVisible(!isFormVisible);
     };
 
+    const handleOnFormClosed = () =>{
+        setIsFormVisible((false));
+    }
+
     return(
 
         <Container fluid={true} className={"authors"}>
             <AuthorWelcome/>
             <AuthorAddedList/>
             <CreateAuthor onClickCreate={handleOnCreateClick}/>
-            {isFormVisible && <AuthorForm/>}
+            {isFormVisible && <AuthorForm onClose={handleOnFormClosed}/>}
         </Container>
     )
 };
