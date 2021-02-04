@@ -67,3 +67,15 @@
   border-bottom: 2.25px solid #00503f;
   font-size: 1rem;
 }
+.warning {
+  p {
+    margin: 0;
+    color: #bf1650;
+    font-size: 0.7rem;
+  }
+
+  p::before {
+    display: inline;
+    content: "⚠ ";
+  }
+}

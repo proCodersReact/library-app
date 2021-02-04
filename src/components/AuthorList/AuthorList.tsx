@@ -20,7 +20,7 @@ const AuthorList:React.FC = () =>{
                 return;
             }
             setIsFormVisible(true);
-        },[authorToUpdate,authors]);
+        },[authorToUpdate]);
 
         const handleOnCreateClick = () => {
             setIsFormVisible(true);
@@ -29,7 +29,7 @@ const AuthorList:React.FC = () =>{
 
 
         const handleOnFormClosed = () => {
-            setIsFormVisible((false));
+            setIsFormVisible(false);
         }
 
         const handleAuthorAdded = (newAuthor: IAuthor) => {
@@ -52,8 +52,6 @@ const AuthorList:React.FC = () =>{
         const handleOnAuthorUpdated = (updatedAuthor: IAuthor, index:number) =>{
             const allAuthors : IAuthor [] = authors.slice();
             allAuthors.splice(index,1, updatedAuthor);
-            console.log(authors);
-            console.log(allAuthors);
             setAuthors(allAuthors)
         }
 
