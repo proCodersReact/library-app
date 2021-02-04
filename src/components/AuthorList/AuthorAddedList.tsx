@@ -5,18 +5,20 @@ import {IAuthor} from "../../assets/types/LibraryTypes";
 
 type AuthorsListProps = {
     authors:IAuthor[]
+    onDeleted: (index:number) =>void
+    onUpdateRequested:(index:number) => void
 }
 
 const AuthorAddedList:React.FC<AuthorsListProps> = (props) =>{
 
-    const {authors} = props;
+    const {authors, onDeleted,onUpdateRequested} = props;
 
     const renderAuthors = () =>{
         if(authors.length === 0){
             return <p><i>No authors listed here</i></p>
         }
       return authors.map((author:IAuthor, Index:number)=>{
-          return <Author author={author} key={Index}/>
+          return <Author author={author} key={Index} onDeleted={onDeleted} index={Index} onUpdateRequest={onUpdateRequested}/>
       })
     };
 
