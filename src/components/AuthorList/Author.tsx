@@ -15,9 +15,8 @@ const Author:React.FC<AuthorProps> = (props) =>{
     const {author,onDeleted,index,onUpdateRequest} = props;
 
 
-
     return(
-        <Row className={"author pt-1 pl-0"}>
+        <Row className={"author pt-1 pl-1"}>
             <Col xs={9} className={"pl-0"}>
                 <label>{index+1}. {author.name}</label>
             </Col>

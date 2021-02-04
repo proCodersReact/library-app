@@ -40,6 +40,7 @@ const AuthorForm:React.FC<CreateFormProps> = (props) =>{
 
         if(props.onAuthorToUpdate && props.updateAuthorIndex !== null){
             props.onAuthorUpdated({...props.onAuthorToUpdate,name:authorName},props.updateAuthorIndex);
+            setAuthorName(null);
             return;
         }
 
