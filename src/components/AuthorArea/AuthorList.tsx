@@ -9,7 +9,7 @@ type AuthorsListProps = {
     onUpdateRequested:(index:number) => void
 }
 
-const AuthorAddedList:React.FC<AuthorsListProps> = (props) =>{
+const AuthorList:React.FC<AuthorsListProps> = (props) =>{
 
     const {authors, onDeleted,onUpdateRequested} = props;
 
@@ -32,4 +32,4 @@ const AuthorAddedList:React.FC<AuthorsListProps> = (props) =>{
         )
 };
 
-export default AuthorAddedList;
+export default AuthorList;
