@@ -18,9 +18,8 @@ type CreateFormProps = {
 };
 
 const AuthorForm: React.FC<CreateFormProps> = (props) => {
-    const {handleSubmit, control, errors, setValue, reset } = useForm<
-        FormData
-        >();
+    const {handleSubmit, control, errors, setValue, reset } = useForm<FormData>();
+
     useEffect(() => {
         if (!props.onAuthorToUpdate) {
             setValue("authorName", null);
@@ -47,6 +46,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
         props.onAuthorAdded(newAuthor);
         reset();
     };
+
     return (
         <Col className="p-0" sm={10}>
             <Row className=" pb-1 mb-3 mx-1">
@@ -75,7 +75,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                                 <p>This field is required</p>
                             )}
                             {_.get("authorName.type", errors) === "maxLength" && (
-                                <p>Author Name name cannot exceed 50 characters</p>
+                                <p>Maximum 50 characters</p>
                             )}
                             {_.get("authorName.type", errors) === "pattern" && (
                                 <p>Alphabetical characters only</p>
