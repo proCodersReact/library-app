@@ -18,11 +18,12 @@ type CreateFormProps = {
 };
 
 const AuthorForm: React.FC<CreateFormProps> = (props) => {
-    const {handleSubmit, control, errors, setValue, reset } = useForm<FormData>();
-
+    const {handleSubmit, control, errors, setValue} = useForm<
+        FormData
+        >();
     useEffect(() => {
         if (!props.onAuthorToUpdate) {
-            setValue("authorName", null);
+            setValue("authorName", "");
             return;
         }
         setValue("authorName", props.onAuthorToUpdate.name);
@@ -38,13 +39,13 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                 { ...props.onAuthorToUpdate, name: data.authorName },
                 props.updateAuthorIndex
             );
-            reset();
+            setValue("authorName", "");
             return;
         }
 
         const newAuthor: IAuthor = { name: data.authorName };
         props.onAuthorAdded(newAuthor);
-        reset();
+        setValue("authorName", "");
     };
 
     return (
