@@ -1,5 +1,5 @@
 import { Col, Row, Container, Form, Button } from "react-bootstrap";
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Edit, Trash2, XCircle, Plus } from "react-feather";
 
 
@@ -7,6 +7,8 @@ import { Edit, Trash2, XCircle, Plus } from "react-feather";
 const Book = () => {
     const [books, setBooks] = useState(['gdg','shda']);
     const [text, setText] = useState('');
+    const [dispForm, setdispForm] = useState(false);
+    const scrollDiv: React.MutableRefObject<any> = useRef()
 
     
 
@@ -22,6 +24,13 @@ const Book = () => {
         setBooks(newState)
        
     }
+
+    function showForm(s :boolean) {
+        let newState = s
+        setdispForm(newState)
+        scrollDiv.current.scrollIntoView({ behavior: 'smooth' })
+        //scrollDiv.current.scrollIntoView({ behavior: 'smooth' });
+        }
 
     return (
         <Container>
@@ -39,9 +48,10 @@ const Book = () => {
                     </Row>)
             }
             <Row className='mx-0 mt-3 mb-4 add-btn'>
-                <Button variant='light' className="text-right p-0 flex-row"><Plus size={21} color='#234479' />   Add Book</Button>
+                <Button variant='light' className="text-right p-0 flex-row"><Plus size={21} color='#234479'
+                 onClick={() => showForm(true)} />   Add Book</Button>
             </Row>
-            <Col className='p-0' sm={10}>
+            <Col style={{ display: dispForm? 'inherit' : 'none'}} className='p-0' sm={10}>
                 <Row className=' pb-1 mb-3 mx-1'>
                     <Col sm={10}>
                         <span className='add-book-title pt-2'>
@@ -49,12 +59,12 @@ const Book = () => {
                             </span>
                     </Col>
                     <Col className='closeBtn text-right p-0' sm={2}>
-                        <XCircle color='#363636' className='mt-2 mr-3' />
+                        <XCircle color='#363636' className='mt-2 mr-3' onClick={() => showForm(false)}  />
                     </Col>
                 </Row>
 
 
-                <Form className='mx-4'>
+                <Form className='mx-4' ref={scrollDiv}>
                 <Form.Group>
                     <Form.Row>
                         <Form.Label column="sm" lg={12} className='label'>
