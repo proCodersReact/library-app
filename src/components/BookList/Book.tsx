@@ -14,27 +14,58 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
     }
     const [books, setBooks] = useState(['gdg','shda']);
     const [text, setText] = useState('');
+    const [index, setIndex] = useState(0);
     const [dispForm, setdispForm] = useState(false);
+    const [bookUpdate, setbookUpdate] = useState(false);
+    const [bookState, setbookState] = useState('Create');
     const scrollDiv: React.MutableRefObject<any> = useRef()
 
     function createBooks(event:React.FormEvent) {
-        let newState = [...books, text];
-        setBooks(newState)
-        let t = ' '
+        if(!bookUpdate){
+            let newState = [...books, text];
+            setBooks(newState)
+            let t = ' '
+            setText(t)
+        }
+        else{
+            console.log(text)
+            console.log(index)
+            console.log(books)
+            let newState = books.splice(index , 1, text)
+            console.log(newState)
+        }
+        let t = ''
         setText(t)
+        setbookUpdate(false)
         event.preventDefault();
     }
 
     function deleteBooks(name:string) {
         let newState = books.filter((el: string) => el !== name);
         setBooks(newState)
+       
     }
 
     function showForm(s :boolean) {
+        if(bookUpdate){
+            setbookState('Update')
+        }
+        else{
+            setbookState('Create')
+        }
         let newState = s
         setdispForm(newState)
         scrollDiv.current.scrollIntoView({ behavior: 'smooth' })
-    }
+        }
+
+    function updateBook(book:string) {
+        let newState = book
+        let index = books.indexOf(book)
+        setIndex(index)
+        setbookUpdate(true)
+        showForm(true)
+        setText(newState)
+        }
 
     return (
         <Container>
@@ -45,7 +76,7 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
                         <Col xs={4}>
                             <Row className='justify-content-end btn-options'>
                                 <Col xs={1} className='text-center text-warning clickBtn'>
-                                    <Edit size='20' />
+                                    <Edit size='20' onClick={() =>(updateBook(book))} />
                                     </Col>
                                 <Col xs={1} className='text-center text-danger clickBtn'><Trash2 size='20' 
                                 onClick={() => deleteBooks(book)}/></Col>
@@ -61,13 +92,14 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
                 <Row className=' pb-1 mb-3 mx-1'>
                     <Col sm={10}>
                         <span className='add-book-title pt-2'>
-                            Create Book
+                            {bookState} Book
                             </span>
                     </Col>
                     <Col className='closeBtn text-right p-0' sm={2}>
                         <XCircle color='#363636' className='mt-2 mr-3' onClick={() => showForm(false)}  />
                     </Col>
                 </Row>
+
                 <Form className='mx-4' ref={scrollDiv} onSubmit={(e) => createBooks(e)}>
                 <Form.Group>
                     <Form.Row>
@@ -95,7 +127,7 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
                 </Form.Group>
                 <Col className='text-right mb-3 p-0' sm={12}>
                     <Button  type={"submit"} variant="primary" size="sm" className='create-btn px-3' >
-                        Create
+                        {bookState}
                     </Button>
                 </Col>
             </Form>
