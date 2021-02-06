@@ -1,36 +1,40 @@
 import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import React, { useState, useRef } from 'react';
 import { Edit, Trash2, XCircle, Plus } from "react-feather";
+import {IAuthor} from "../../assets/types/LibraryTypes";
 
-
-
-const Book = () => {
+type BookProps = {
+    authors:IAuthor[]
+}
+const Book:React.FC<BookProps> = (Prop:any) =>{
+    const {authors} = Prop;
+    var options = [];
+    for (var i = 0; i < authors.length; i++) {
+        options.push(<option key={i} >{authors[i].name}</option>);
+    }
     const [books, setBooks] = useState(['gdg','shda']);
     const [text, setText] = useState('');
     const [dispForm, setdispForm] = useState(false);
     const scrollDiv: React.MutableRefObject<any> = useRef()
 
-    
-
-    function createBooks() {
+    function createBooks(event:React.FormEvent) {
         let newState = [...books, text];
         setBooks(newState)
-        let t = ''
+        let t = ' '
         setText(t)
+        event.preventDefault();
     }
 
     function deleteBooks(name:string) {
         let newState = books.filter((el: string) => el !== name);
         setBooks(newState)
-       
     }
 
     function showForm(s :boolean) {
         let newState = s
         setdispForm(newState)
         scrollDiv.current.scrollIntoView({ behavior: 'smooth' })
-        //scrollDiv.current.scrollIntoView({ behavior: 'smooth' });
-        }
+    }
 
     return (
         <Container>
@@ -40,7 +44,9 @@ const Book = () => {
                         <Col xs={8}  ><label >{index + 1}.{book}</label></Col>
                         <Col xs={4}>
                             <Row className='justify-content-end btn-options'>
-                                <Col xs={1} className='text-center text-warning clickBtn'><Edit size='20' /></Col>
+                                <Col xs={1} className='text-center text-warning clickBtn'>
+                                    <Edit size='20' />
+                                    </Col>
                                 <Col xs={1} className='text-center text-danger clickBtn'><Trash2 size='20' 
                                 onClick={() => deleteBooks(book)}/></Col>
                             </Row>
@@ -62,9 +68,7 @@ const Book = () => {
                         <XCircle color='#363636' className='mt-2 mr-3' onClick={() => showForm(false)}  />
                     </Col>
                 </Row>
-
-
-                <Form className='mx-4' ref={scrollDiv}>
+                <Form className='mx-4' ref={scrollDiv} onSubmit={(e) => createBooks(e)}>
                 <Form.Group>
                     <Form.Row>
                         <Form.Label column="sm" lg={12} className='label'>
@@ -84,19 +88,17 @@ const Book = () => {
                         </Form.Label>
                         <Col sm={12}>
                             <Form.Control size="sm" as="select">
+                            {options}
                             </Form.Control>
                         </Col>
                     </Form.Row>
                 </Form.Group>
                 <Col className='text-right mb-3 p-0' sm={12}>
-                    <Button variant="primary" size="sm" className='create-btn px-3' onClick={() => createBooks()}>
+                    <Button  type={"submit"} variant="primary" size="sm" className='create-btn px-3' >
                         Create
                     </Button>
                 </Col>
             </Form>
-
-
-                
             </Col>
         </Container>
     )
