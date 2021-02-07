@@ -14,7 +14,7 @@ const BookListArea: React.FC = () => {
                 <Book/>
             </Col>
             <Row className='mx-0 mt-3 mb-4 add-btn'>
-                <Button variant='light' className="text-right p-0 flex-row"><Plus size={21} color='#234479'/>   Add Book</Button>
+                <Button variant='light' className="text-left p-0 flex-row"><Plus size={21} color='#234479'/>   Add Book</Button>
             </Row>
             <Col className='p-0 m-0'>
                 <BookListForm/>
