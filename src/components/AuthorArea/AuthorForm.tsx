@@ -49,7 +49,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
     };
 
     return (
-        <Col className="p-0" sm={10}>
+        <Col className="p-0" xs={10}>
             <Row className=" pb-1 mb-3 mx-1">
                 <Col xs={10}>
           <span className="add-book-title pt-2">
@@ -82,7 +82,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                                 <p>Alphabetical characters only</p>
                             )}
                         </Col>
-                        <Col sm={12}>
+                        <Col xs={12}>
                             <Controller
                                 control={control}
                                 name={"authorName"}
@@ -102,7 +102,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                         type={"submit"}
                         variant={"primary"}
                         size={"sm"}
-                        className={"px-3 pt-1"}
+                        className={"px-3 pt-1 create-btn"}
                     >
                         {!props.onAuthorToUpdate && "Create"}
                         {props.onAuthorToUpdate && "Update"}

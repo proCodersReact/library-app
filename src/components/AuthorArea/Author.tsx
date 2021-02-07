@@ -16,11 +16,11 @@ const Author:React.FC<AuthorProps> = (props) =>{
 
 
     return(
-        <Row className={"author pt-1 pl-1"}>
+        <Row className={"author pt-1 mx-1"}>
             <Col xs={9} className={"pl-0"}>
                 <label>{index+1}. {author.name}</label>
             </Col>
-            <Col xs={3} className={"text-right author-icon"}>
+            <Col xs={3} className={"text-right author-icon p-1"}>
                 <i className={"feather icon-edit text-warning mr-2"} onClick={()=>onUpdateRequest(index)}/>
                 <i className={"feather icon-trash-2 text-danger"} onClick={()=>onDeleted(index)}/>
             </Col>

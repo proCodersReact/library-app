@@ -13,7 +13,7 @@ const BookListArea:React.FC<BookListAreaProps> = (Prop:any) =>{
             <Row as='h3' className='book-list-title pb-1 mt-1 mb-4 mx-1'>
                 Books
             </Row>
-            <Col className='mt-2'>
+            <Col className='mt-2 p-0'>
                 <Book authors={authors}/>
             </Col>
         </Container>
