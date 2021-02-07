@@ -12,7 +12,7 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
     for (var i = 0; i < authors.length; i++) {
         options.push(<option key={i} >{authors[i].name}</option>);
     }
-    const [books, setBooks] = useState(['gdg','shda']);
+    const [books, setBooks] = useState<string[]>([]);
     const [text, setText] = useState('');
     const [index, setIndex] = useState(0);
     const [dispForm, setdispForm] = useState(false);
@@ -20,19 +20,38 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
     const [bookState, setbookState] = useState('Create');
     const scrollDiv: React.MutableRefObject<any> = useRef()
 
+    const bookList = books.map((book: string, index: number) =>
+                    <Row className='pl-1 pr-3 mt-1 book' key={index}>
+                        <Col xs={8}  ><label >{index + 1}.{book}</label></Col>
+                        <Col xs={4}>
+                            <Row className='justify-content-end btn-options'>
+                                <Col xs={1} className='text-center text-warning clickBtn'>
+                                    <Edit size='20' onClick={() =>(updateBook(book))} />
+                                    </Col>
+                                <Col xs={1} className='text-center text-danger clickBtn'><Trash2 size='20' 
+                                onClick={() => deleteBooks(book)}/></Col>
+                            </Row>
+                        </Col>
+                    </Row>)
+    function listAllBooks(){
+        if(books.length !== 0){
+            return bookList
+        }
+        else{
+            return <p>No Books listed here</p>
+        }
+    }
+                   
+
     function createBooks(event:React.FormEvent) {
         if(!bookUpdate){
-            let newState = [...books, text];
+            let newState:string[] = [...books, text];
             setBooks(newState)
             let t = ' '
             setText(t)
         }
         else{
-            console.log(text)
-            console.log(index)
-            console.log(books)
-            let newState = books.splice(index , 1, text)
-            console.log(newState)
+            books.splice(index , 1, text)
         }
         let t = ''
         setText(t)
@@ -69,24 +88,11 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
 
     return (
         <Container>
-            {
-                books.map((book: string, index: number) =>
-                    <Row className='pl-1 pr-3 mt-1 book' key={index}>
-                        <Col xs={8}  ><label >{index + 1}.{book}</label></Col>
-                        <Col xs={4}>
-                            <Row className='justify-content-end btn-options'>
-                                <Col xs={1} className='text-center text-warning clickBtn'>
-                                    <Edit size='20' onClick={() =>(updateBook(book))} />
-                                    </Col>
-                                <Col xs={1} className='text-center text-danger clickBtn'><Trash2 size='20' 
-                                onClick={() => deleteBooks(book)}/></Col>
-                            </Row>
-                        </Col>
-                    </Row>)
+            { listAllBooks()
+                
             }
             <Row className='mx-0 mt-3 mb-4 add-btn'>
-                <Button variant='light' className="text-right p-0 flex-row"><Plus size={21} color='#234479'
-                 onClick={() => showForm(true)} />   Add Book</Button>
+                <Button variant='light' className="text-right p-0 flex-row" onClick={() => showForm(true)}><Plus size={21} color='#234479'/>   Add Book</Button>
             </Row>
             <Col style={{ display: dispForm? 'inherit' : 'none'}} className='p-0' sm={10}>
                 <Row className=' pb-1 mb-3 mx-1'>
