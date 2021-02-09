@@ -14,10 +14,13 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
     }
     const [books, setBooks] = useState<string[]>([]);
     const [text, setText] = useState('');
+    const [ISBN, setISBN] = useState('');
     const [index, setIndex] = useState(0);
     const [dispForm, setdispForm] = useState(false);
+    const [bookName, setbookName] = useState(false);
     const [bookUpdate, setbookUpdate] = useState(false);
     const [bookState, setbookState] = useState('Create');
+    const [validated, setValidated] = useState(false);
     const scrollDiv: React.MutableRefObject<any> = useRef()
 
     const bookList = books.map((book: string, index: number) =>
@@ -41,22 +44,33 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
             return <p>No Books listed here</p>
         }
     }
-                   
 
-    function createBooks(event:React.FormEvent) {
-        if(!bookUpdate){
-            let newState:string[] = [...books, text];
-            setBooks(newState)
-            let t = ' '
-            setText(t)
-        }
+    function createBooks(event:any) {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            setbookName(true)
+          event.preventDefault();
+          event.stopPropagation();
+          setValidated(true);
+        } 
         else{
-            books.splice(index , 1, text)
-        }
-        let t = ''
-        setText(t)
-        setbookUpdate(false)
-        event.preventDefault();
+            setbookName(false)
+            if(!bookUpdate){
+                let newState:string[] = [...books, text];
+                setBooks(newState)
+                let t = ' '
+                setText(t)
+            }
+            else{
+                books.splice(index , 1, text)
+            }
+            let t = ''
+            setText(t)
+            setISBN(t)
+            setbookUpdate(false)
+            event.preventDefault();
+            setValidated(false);
+        } 
     }
 
     function deleteBooks(name:string) {
@@ -65,7 +79,19 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
        
     }
 
+    function checkFormvalidity(event:any) {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            setbookName(true)
+        }
+        else{
+            setbookName(false)
+        }
+    }
+
     function showForm(s :boolean) {
+        setValidated(false);
+        setbookName(false)
         if(bookUpdate){
             setbookState('Update')
         }
@@ -106,26 +132,33 @@ const Book:React.FC<BookProps> = (Prop:any) =>{
                     </Col>
                 </Row>
 
-                <Form className='mx-4' ref={scrollDiv} onSubmit={(e) => createBooks(e)}>
+                <Form noValidate validated={validated} className='mx-4' ref={scrollDiv} onChange={e => checkFormvalidity(e)} onSubmit={(e) => createBooks(e)}>
                 <Form.Group>
                     <Form.Row>
-                        <Form.Label column="sm" lg={12} className='label'>
+                        <Form.Label column="sm" xs={6} className='label'>
                             Title of the Book
+                           
                         </Form.Label>
+                        <Col style={{ display: bookName? 'inherit' : 'none'}} xs={6} className="warning text-right mt-2 pr-2">
+                            <p>All fields are required</p>
+                            </Col>
                         <Col sm={12}>
-                            <Form.Control size="sm" type="text" value={text} onChange={e => setText(e.target.value)}/>
+                        
+                            <Form.Control size="sm" type="text" value={text} onChange={e => setText(e.target.value)} 
+                             required/>
+                              
                         </Col>
                         <Form.Label column="sm" lg={12} className='label'>
                             ISBN
                         </Form.Label>
                         <Col sm={12}>
-                            <Form.Control size="sm" type="text"/>
+                            <Form.Control size="sm" type="text" value={ISBN} onChange={e => setISBN(e.target.value)} required />
                         </Col>
                         <Form.Label column="sm" lg={12} className='label'>
                             Author
                         </Form.Label>
                         <Col sm={12}>
-                            <Form.Control size="sm" as="select">
+                            <Form.Control size="sm" as="select" required>
                             {options}
                             </Form.Control>
                         </Col>

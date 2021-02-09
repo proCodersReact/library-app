@@ -51,3 +51,28 @@
 .closeBtn{
   cursor: pointer;
 }
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  background-image: none;
+}
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  background-image: none;
+}
+.warning {
+  p {
+    margin-right: 0;
+    color: #bf1650;
+    font-size: 0.7rem;
+  }
+
+  p::before {
+    margin-left: 6px;
+    display: inline;
+    content: "⚠ ";
+    text-align: right;
+  }
+}
+.warning {
+  text-align: right;
+}
