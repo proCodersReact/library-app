@@ -27,11 +27,11 @@ const Book: React.FC<BookProps> = (Prop: any) => {
     const scrollDiv: React.MutableRefObject<any> = useRef()
 
     const bookList = books.map((book: string, index: number) =>
-        <Row className='p-0 mx-1 book' key={index}>
-            <Col xs={9} className={'p-0'}>
+        <Row className='pt-1 mx-1 book' key={index}>
+            <Col xs={9} className={'pl-0'}>
                 <label>{index + 1}.{book}</label>
             </Col>
-            <Col xs={3} className={"text-right book-icon p-0"}>
+            <Col xs={3} className={"text-right book-icon p-1"}>
                 <Edit className={"text-warning mr-2"} size='20' onClick={() => (updateBook(book))}/>
                 <Trash2 className={"text-danger"} size='20' onClick={() => deleteBooks(book)}/>
             </Col>
