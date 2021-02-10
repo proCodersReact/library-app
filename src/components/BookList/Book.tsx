@@ -13,8 +13,11 @@ const Book: React.FC<BookProps> = (Prop: any) => {
         options.push(<option key={i}>{authors[i].name}</option>);
     }
     const [books, setBooks] = useState<string[]>([]);
+    const [bookISBN, setBookISBN] = useState<string[]>([]);
+    const [bookAuthor, setBookAuthor] = useState<string[]>([]);
     const [text, setText] = useState('');
     const [ISBN, setISBN] = useState('');
+    const [author, setAuthor] = useState('testing authtp');
     const [index, setIndex] = useState(0);
     const [dispForm, setdispForm] = useState(false);
     const [bookName, setbookName] = useState(false);
@@ -53,17 +56,24 @@ const Book: React.FC<BookProps> = (Prop: any) => {
         else{
             setbookName(false)
             if(!bookUpdate){
-                let newState:string[] = [...books, text];
-                setBooks(newState)
+                let newStateBooks:string[] = [...books, text];
+                let newStateISBN:string[] = [...bookISBN, ISBN];
+                let newStateAuthor:string[] = [...bookAuthor, author];
+                setBooks(newStateBooks)
+                setBookISBN(newStateISBN)
+                setBookAuthor(newStateAuthor)
                 let t = ' '
                 setText(t)
             }
             else{
                 books.splice(index , 1, text)
+                bookISBN.splice(index , 1, ISBN)
+                bookAuthor.splice(index , 1, author)
             }
             let t = ''
             setText(t)
             setISBN(t)
+            setAuthor(t)
             setbookUpdate(false)
             event.preventDefault();
             setValidated(false);
@@ -89,23 +99,34 @@ const Book: React.FC<BookProps> = (Prop: any) => {
     function showForm(s :boolean) {
         setValidated(false);
         setbookName(false)
-        if(bookUpdate){
-            setbookState('Update')
-        } else {
-            setbookState('Create')
-        }
+        
         let newState = s
         setdispForm(newState)
         scrollDiv.current.scrollIntoView({behavior: 'smooth'})
     }
 
     function updateBook(book: string) {
+        setbookState('Update')
         let newState = book
         let index = books.indexOf(book)
+        let bookISBNValue = bookISBN[index]
+        let bookAuthorValue = bookAuthor[index]
         setIndex(index)
         setbookUpdate(true)
         showForm(true)
         setText(newState)
+        setISBN(bookISBNValue)
+        setAuthor(bookAuthorValue)
+    }
+
+    function addBook() {
+        setbookState('Create')
+        setbookUpdate(false)
+        showForm(true)
+        let t = ''
+        setText(t)
+        setISBN(t)
+        setAuthor(t)
     }
 
     return (
@@ -115,7 +136,7 @@ const Book: React.FC<BookProps> = (Prop: any) => {
             </Col>
 
             <Row className='mx-0 mt-3 mb-4 add-btn'>
-                <Button variant='light' className="text-right p-0 flex-row" onClick={() => showForm(true)}><Plus
+                <Button variant='light' className="text-right p-0 flex-row" onClick={() => addBook()}><Plus
                     size={21} color='#234479'/> Add Book</Button>
             </Row>
             <Col style={{display: dispForm ? 'inherit' : 'none'}} className='p-0' xs={10}>
@@ -156,8 +177,8 @@ const Book: React.FC<BookProps> = (Prop: any) => {
                             Author
                         </Form.Label>
                         <Col sm={12}>
-                            <Form.Control size="sm" as="select" required>
-                            {options}
+                            <Form.Control size="sm" as="select" type="text" value={author} onChange={e => setAuthor(e.target.value)} required>
+                                {options}
                             </Form.Control>
                         </Col>
                     </Form.Row>
