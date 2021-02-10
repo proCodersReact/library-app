@@ -1,11 +1,10 @@
 import React from 'react';
-import './assets/styles/main.scss';
-import ClientApp from "./ClientApp";
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <ClientApp/>
+      <h1> Library workspace </h1>
     </div>
   );
 }
