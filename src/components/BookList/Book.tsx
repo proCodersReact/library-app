@@ -141,7 +141,7 @@ const Book: React.FC<BookProps> = (Prop: any) => {
             </Row>
             <Col style={{display: dispForm ? 'inherit' : 'none'}} className='p-0' sm={10}>
                 <Row className=' pb-1 mb-3 mx-1'>
-                    <Col xs={10}>
+                    <Col xs={10} className={'p-0'}>
                         <span className='add-book-title pt-2'>
                             {bookState} Book
                             </span>
