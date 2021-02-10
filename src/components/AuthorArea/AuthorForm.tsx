@@ -49,9 +49,9 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
     };
 
     return (
-        <Col className="p-0" xs={10}>
+        <Col className="p-0" sm={10}>
             <Row className=" pb-1 mb-3 mx-1">
-                <Col xs={10}>
+                <Col xs={10} className={'p-0'}>
           <span className="add-book-title pt-2">
             {!props.onAuthorToUpdate && "Create Author"}
               {props.onAuthorToUpdate && "Update Author"}
@@ -60,7 +60,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                 <Col className="closeBtn text-right p-0" xs={2}>
                     <XCircle
                         color="#363636"
-                        className="mt-2 mr-3"
+                        className="mr-3"
                         onClick={props.onClose}
                     />
                 </Col>
@@ -86,7 +86,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                             <Controller
                                 control={control}
                                 name={"authorName"}
-                                as={<Form.Control size={"sm"} />}
+                                as={<Form.Control size={"sm"} className='author-input' />}
                                 defaultValue=""
                                 rules={{
                                     required: true,

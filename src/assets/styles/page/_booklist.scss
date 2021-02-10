@@ -21,7 +21,7 @@
 
 }
 .book {
-  font-weight: 500;
+  font-weight: 470;
 
   .book-icon {
     display: none;
@@ -83,4 +83,55 @@
 }
 .warning {
   text-align: right;
+}
+
+.clear-in{
+  position: relative;
+}
+.clear-btn{
+  position: absolute;
+  top: 0;
+  border-radius: 5px;
+  right: 0px;
+  z-index: 2;
+  border: none;
+  top: 6.5px;
+  right: 24px;
+  height: 20px;
+  cursor: pointer;
+  color: black;
+  background-color: transparent;
+  transform: translateX(2px);
+}
+.bookInput{
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #989898;
+  border-radius: 0;
+}
+.bookInput:focus:required:invalid,.bookInput:focus:required:valid{
+  box-shadow: 0 0 10px #bfdaff;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #84b2ff;
+}
+
+.bookInput:required:invalid, .bookInput:required:valid{
+    border: 1px solid #989898;
+}
+.separator{
+  position: absolute;
+  top:0;
+  right: 0;
+  z-index: 2;
+  border: none;
+  top:12px;
+  right: 23px;
+  border-left: 1px solid #989898;
+  height: 17px;
 }
