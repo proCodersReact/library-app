@@ -4,6 +4,7 @@ import { IAuthor } from "../../assets/types/LibraryTypes";
 import { XCircle } from "react-feather";
 import { useForm, Controller } from "react-hook-form";
 import _ from "lodash/fp";
+import handleOnUpdateAuthor from "../../assets/utils/handleOnUpdateAuthor";
 
 type FormData = {
     authorName: string;
@@ -35,43 +36,37 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
         }
 
         if (props.onAuthorToUpdate && props.updateAuthorIndex !== null) {
-            props.onAuthorUpdated(
-                { ...props.onAuthorToUpdate, name: data.authorName },
-                props.updateAuthorIndex
-            );
-            setValue("authorName", "");
+            handleOnUpdateAuthor(props.onAuthorUpdated,
+                {...props.onAuthorToUpdate, name: data.authorName},
+                props.updateAuthorIndex, props.onClose, setValue)
             return;
         }
 
-        const newAuthor: IAuthor = { name: data.authorName };
+        const newAuthor: IAuthor = {name: data.authorName};
         props.onAuthorAdded(newAuthor);
         setValue("authorName", "");
     };
 
     return (
-        <Col className="p-0" sm={10}>
-            <Row className=" pb-1 mb-3 mx-1">
-                <Col xs={10} className={'p-0'}>
-          <span className="add-book-title pt-2">
-            {!props.onAuthorToUpdate && "Create Author"}
-              {props.onAuthorToUpdate && "Update Author"}
-          </span>
+        <Col className='p-0 px-1 mr-1' xl={7} lg={8} md={10} sm={12}>
+            <Row className="px-0 mx-0 pb-1 mb-3">
+                <Col className={'p-0'} xs={6}>
+                  <span className="add-author-title pt-2">
+                    {!props.onAuthorToUpdate && "Create Author"}
+                      {props.onAuthorToUpdate && "Update Author"}
+                  </span>
                 </Col>
-                <Col className="closeBtn text-right p-0" xs={2}>
-                    <XCircle
-                        color="#363636"
-                        className="mr-3"
-                        onClick={props.onClose}
-                    />
+                <Col className='close-btn text-right p-0 m-0 px-md-4 px-0' xs={6}>
+                    <XCircle color="#363636" onClick={props.onClose}/>
                 </Col>
             </Row>
-            <Form className="mx-4" onSubmit={handleSubmit(handleOnCreate)}>
+            <Form className='px-0 mx-0 px-md-4 px-0' onSubmit={handleSubmit(handleOnCreate)}>
                 <Form.Group>
-                    <Form.Row>
-                        <Form.Label column="sm" xs={6} className="label">
-                            Name of the Author
+                    <Form.Row className={'px-0 mx-0'}>
+                        <Form.Label column="sm" xs={5} className="label p-0 pl-1 pb-1">
+                            Name of Author
                         </Form.Label>
-                        <Col xs={6} className="warning text-right mt-2 pr-2">
+                        <Form.Label column="sm" xs={7} className="warning text-right p-0 pr-1 pt-1">
                             {_.get("authorName.type", errors) === "required" && (
                                 <p>This field is required</p>
                             )}
@@ -81,12 +76,13 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                             {_.get("authorName.type", errors) === "pattern" && (
                                 <p>Alphabetical characters only</p>
                             )}
-                        </Col>
-                        <Col xs={12}>
+                        </Form.Label>
+                        <Col sm={12} className={'p-0 mb-1'}>
                             <Controller
+                                autoFocus={true}
                                 control={control}
                                 name={"authorName"}
-                                as={<Form.Control size={"sm"} className='author-input' />}
+                                as={<Form.Control size={"sm"} className='author-name-input'/>}
                                 defaultValue=""
                                 rules={{
                                     required: true,
@@ -102,7 +98,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                         type={"submit"}
                         variant={"primary"}
                         size={"sm"}
-                        className={"px-3 pt-1 create-btn"}
+                        className={"create-btn"}
                     >
                         {!props.onAuthorToUpdate && "Create"}
                         {props.onAuthorToUpdate && "Update"}

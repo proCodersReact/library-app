@@ -1,6 +1,9 @@
 import React from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {IAuthor} from "../../assets/types/LibraryTypes";
+import {Edit, Trash2} from "react-feather";
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import handleOnDelete from "../../assets/utils/handleOnDelete";
 
 type AuthorProps = {
     index: number,
@@ -16,13 +19,21 @@ const Author:React.FC<AuthorProps> = (props) =>{
 
 
     return(
-        <Row className={"author pt-1 mx-1"}>
-            <Col xs={9} className={"pl-0"}>
-                <label>{index+1}. {author.name}</label>
+        <Row className={"author mx-1 py-1"}>
+            <Col xs={8} className={'p-0'}>
+                <label className='author-text p-0 m-0'>{index + 1}. {author.name}</label>
             </Col>
-            <Col xs={3} className={"text-right author-icon p-1"}>
-                <i className={"feather icon-edit text-warning mr-2"} onClick={()=>onUpdateRequest(index)}/>
-                <i className={"feather icon-trash-2 text-danger"} onClick={()=>onDeleted(index)}/>
+            <Col xs={4} className={"p-0 justify-content-end btn-options pr-3"}>
+                <Col xs={1} className='text-warning clickBtn'>
+                    <Edit size='20'
+                          onClick={() => onUpdateRequest(index)}
+                    />
+                </Col>
+                <Col xs={1} className='text-danger clickBtn'>
+                    <Trash2 size='20'
+                            onClick={() => handleOnDelete(index, onDeleted)}
+                    />
+                </Col>
             </Col>
         </Row>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import Author from "./Author";
-import {Col} from 'react-bootstrap';
+import {Col, Row} from 'react-bootstrap';
 import {IAuthor} from "../../assets/types/LibraryTypes";
 
 type AuthorsListProps = {
@@ -11,25 +11,33 @@ type AuthorsListProps = {
 
 const AuthorList:React.FC<AuthorsListProps> = (props) =>{
 
-    const {authors, onDeleted,onUpdateRequested} = props;
+    const {authors, onDeleted, onUpdateRequested} = props;
 
-    const renderAuthors = () =>{
-        if(authors.length === 0){
-            return <p className={'m-1'}><i>No authors listed here</i></p>
+    const renderAuthors = () => {
+        if (authors.length === 0) {
+            return <p className='empty-msg m-0 p-0 mx-1 pt-1'><i>No authors listed here</i></p>
         }
-      return authors.map((author:IAuthor, Index:number)=>{
-          return <Author  author={author} key={Index} onDeleted={onDeleted} index={Index} onUpdateRequest={onUpdateRequested}/>
-      })
+        return (
+            <Row className={'p-0 m-0 mt-2 mb-1'}>
+                <Col className={'p-0 m-0'}>
+                    {authors.map((author: IAuthor, Index: number) => {
+                        return <Author author={author}
+                                       key={Index}
+                                       onDeleted={onDeleted}
+                                       index={Index}
+                                       onUpdateRequest={onUpdateRequested}
+                        />
+                    })}
+                </Col>
+            </Row>
+        );
     };
 
-    return(
-        <div>
-            <Col className={" m-0 mt-2 p-0"}>
-                {renderAuthors()}
-            </Col>
-        </div>
-
-        )
+    return (
+        <React.Fragment>
+            {renderAuthors()}
+        </React.Fragment>
+    )
 };
 
 export default AuthorList;
