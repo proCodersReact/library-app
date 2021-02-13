@@ -12,8 +12,8 @@ const ClientApp: React.FC = () => {
         <Container className='welcome-area' fluid={true}>
             <ReadingArea/>
             <Row>
-                <Col sm={6} className='px-4'><BookContainer authors={authors}/></Col>
-                <Col sm={6} className='px-4'><AuthorContainer authors={authors} setAuthors={setAuthors}/></Col>
+                <Col sm={6} className='book-container-class'><BookContainer authors={authors}/></Col>
+                <Col sm={6} className='author-container-class'><AuthorContainer authors={authors} setAuthors={setAuthors}/></Col>
             </Row>
         </Container>
     )
