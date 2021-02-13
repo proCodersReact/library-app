@@ -7,21 +7,21 @@ import CreateAuthor from "./CreateAuthor";
 import {IAuthor} from "../../assets/types/LibraryTypes";
 
 type AuthorsListProps = {
-    authors:IAuthor[]
-    setAuthors:any
+    authors: IAuthor[]
+    setAuthors: any
 }
-const AuthorContainer:React.FC<AuthorsListProps> = (Prop:any) =>{
+const AuthorContainer: React.FC<AuthorsListProps> = (Prop: any) => {
     const {authors, setAuthors} = Prop;
     const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
     const [authorToUpdate, setAuthorToUpdate] = useState<IAuthor | null>(null);
-    const [updateAuthorIndex, setUpdateAuthorIndex] = useState<number| null>(null)
+    const [updateAuthorIndex, setUpdateAuthorIndex] = useState<number | null>(null)
 
-    useEffect(()=>{
-        if(!authorToUpdate){
+    useEffect(() => {
+        if (!authorToUpdate) {
             return;
         }
         setIsFormVisible(true);
-    },[authorToUpdate]);
+    }, [authorToUpdate]);
 
     const handleOnCreateClick = () => {
         setIsFormVisible(true);
@@ -50,19 +50,24 @@ const AuthorContainer:React.FC<AuthorsListProps> = (Prop:any) =>{
         setIsFormVisible(true);
     }
 
-    const handleOnAuthorUpdated = (updatedAuthor: IAuthor, index:number) =>{
-        const allAuthors : IAuthor [] = authors.slice();
-        allAuthors.splice(index,1, updatedAuthor);
+    const handleOnAuthorUpdated = (updatedAuthor: IAuthor, index: number) => {
+        const allAuthors: IAuthor [] = authors.slice();
+        allAuthors.splice(index, 1, updatedAuthor);
         setAuthors(allAuthors)
     }
 
     return (
-        <Container fluid={true} className={"authors"}>
+        <Container fluid={true} className={"authors p-0"}>
             <AuthorWelcome/>
-            <AuthorList authors={authors} onDeleted={handleAuthorDeleted} onUpdateRequested={handleOnUpdateRequest} />
+            <AuthorList authors={authors} onDeleted={handleAuthorDeleted}
+                        onUpdateRequested={handleOnUpdateRequest}/>
             <CreateAuthor onClickCreate={handleOnCreateClick}/>
             {isFormVisible &&
-            <AuthorForm onClose={handleOnFormClosed} onAuthorAdded={handleAuthorAdded} onAuthorToUpdate={authorToUpdate} onAuthorUpdated={handleOnAuthorUpdated} updateAuthorIndex={updateAuthorIndex}/>}
+            <AuthorForm onClose={handleOnFormClosed}
+                        onAuthorAdded={handleAuthorAdded}
+                        onAuthorToUpdate={authorToUpdate}
+                        onAuthorUpdated={handleOnAuthorUpdated}
+                        updateAuthorIndex={updateAuthorIndex}/>}
         </Container>
     )
 }

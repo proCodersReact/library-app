@@ -1,17 +1,23 @@
 // reading area's scss
 
-.welcome-area{
-  .title{
+.welcome-area {
+  .title {
     font-weight: 650;
-    font-size: 2rem;
+    font-size: $welcome-area-title-font-size;
   }
-  Image{
+
+  Image {
     max-width: 100%;
     height: auto;
   }
-  .credit{
-    font-size: 0.9rem;
+
+  .credit {
     margin: 0;
+
+    span {
+      font-size: 1.1em;
+      font-weight: 500;
+    }
   }
 }
 

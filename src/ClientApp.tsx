@@ -1,19 +1,20 @@
 import React, {useState} from "react";
 import ReadingArea from "./components/ReadingArea";
 import {Col, Container, Row} from "react-bootstrap";
-import BookListArea from "./components/BookList/BookListArea";
 import AuthorContainer from "./components/AuthorArea/AuthorContainer";
 import {IAuthor} from "./assets/types/LibraryTypes";
+import BookContainer from "./components/BookArea/BookContainer";
 
 const ClientApp: React.FC = () => {
     const initAuthors: IAuthor[] = [];
     const [authors, setAuthors] = useState<IAuthor[]>(initAuthors);
-    return(
+    return (
         <Container className='welcome-area' fluid={true}>
             <ReadingArea/>
-            <Row>
-                <Col sm={6} className='p-0'><BookListArea authors={authors}/></Col>
-                <Col sm={6} className='p-0'><AuthorContainer authors={authors} setAuthors={setAuthors}/></Col>
+            <Row className='flex-column-reverse flex-sm-row'>
+                <Col sm={6} className='book-container-class'><BookContainer authors={authors}/></Col>
+                <Col sm={6} className='author-container-class'><AuthorContainer authors={authors}
+                                                                                setAuthors={setAuthors}/></Col>
             </Row>
         </Container>
     )

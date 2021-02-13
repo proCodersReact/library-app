@@ -1,0 +1,158 @@
+@media screen and (min-width: 100px) {
+  .book-list-title {
+    font-size: $area-title-font-size-extra-small;
+  }
+  .add-book-title {
+    font-size: $form-title-text-size-extra-small;
+  }
+  .add-btn {
+    Button {
+      font-size: $add-button-text-size-extra-small;
+    }
+  }
+  .book {
+    .book-text {
+      font-size: $area-text-font-size-extra-small;
+    }
+  }
+  .empty-msg {
+    font-size: $empty-msg-font-size-extra-small;
+  }
+
+  .label {
+    font-size: $form-label-text-size-extra-small;
+  }
+  .warning {
+    p {
+      font-size: $form-warning-text-size-extra-small;
+    }
+  }
+}
+
+
+@media screen and (min-width: 576px) {
+  .book-list-title {
+    font-size: $area-title-font-size-small;
+  }
+  .add-book-title {
+    font-size: $form-title-text-size-small;
+  }
+  .add-btn {
+    Button {
+      font-size: $add-button-text-size-small;
+    }
+  }
+  .book {
+    .book-text {
+      font-size: $area-text-font-size-small;
+    }
+  }
+  .empty-msg {
+    font-size: $empty-msg-font-size-small;
+  }
+
+  .label {
+    font-size: $form-label-text-size-small;
+  }
+  .warning {
+    p {
+      font-size: $form-warning-text-size-small;
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .book-list-title {
+    font-size: $area-title-font-size-medium;
+  }
+  .add-book-title {
+    font-size: $form-title-text-size-medium;
+  }
+  .add-btn {
+    Button {
+      font-size: $add-button-text-size-medium;
+    }
+  }
+  .book {
+    .book-text {
+      font-size: $area-text-font-size-medium;
+    }
+  }
+  .empty-msg {
+    font-size: $empty-msg-font-size-medium;
+  }
+
+  .label {
+    font-size: $form-label-text-size-medium;
+  }
+  .warning {
+    p {
+      font-size: $form-warning-text-size-medium;
+    }
+  }
+}
+
+
+@media screen and (min-width: 992px) {
+  .book-list-title {
+    font-size: $area-title-font-size-large;
+  }
+  .add-book-title {
+    font-size: $form-title-text-size-large;
+  }
+  .add-btn {
+    Button {
+      font-size: $add-button-text-size-large;
+    }
+  }
+  .book {
+    .book-text {
+      font-size: $area-text-font-size-large;
+    }
+  }
+  .empty-msg {
+    font-size: $empty-msg-font-size-large;
+  }
+
+  .label {
+    font-size: $form-label-text-size-large;
+  }
+  .warning {
+    p {
+      font-size: $form-warning-text-size-large;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .book-list-title {
+    font-size: $area-title-font-size-extra-large;
+  }
+  .add-book-title {
+    font-size: $form-title-text-size-extra-large;
+  }
+  .add-btn {
+    Button {
+      font-size: $add-button-text-size-extra-large;
+    }
+  }
+  .book {
+    .book-text {
+      font-size: $area-text-font-size-extra-large;
+    }
+  }
+  .empty-msg {
+    font-size: $empty-msg-font-size-extra-large;
+  }
+
+  .label {
+    font-size: $form-label-text-size-extra-large;
+  }
+  .warning {
+    p {
+      font-size: $form-warning-text-size-extra-large;
+    }
+  }
+}
+
