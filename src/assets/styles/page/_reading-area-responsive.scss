@@ -1,0 +1,76 @@
+@media screen and (min-width: 576px){
+  .welcome-area{
+    .title{
+      font-size: $welcome-area-title-font-size-extra-small;
+    }
+    .credit{
+      span{
+        font-size: $credit-font-size-extra-small;
+
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 576px){
+  .welcome-area{
+    .title{
+      font-size: $welcome-area-title-font-size-small;
+    }
+    .credit{
+      span{
+        font-size: $credit-font-size-small;
+
+      }
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 768px){
+  .welcome-area{
+    .title{
+      font-size: $welcome-area-title-font-size-medium;
+    }
+    .credit{
+      span{
+        font-size: $credit-font-size-medium;
+
+      }
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 992px){
+  .welcome-area{
+    .title{
+      font-size: $welcome-area-title-font-size-large;
+    }
+    .credit{
+      span{
+        font-size: $credit-font-size-large;
+
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1200px){
+  .welcome-area{
+    .title{
+      font-size: $welcome-area-title-font-size-extra-large;
+    }
+    .credit{
+      span{
+        font-size: $credit-font-size-extra-large;
+
+      }
+    }
+  }
+}
+

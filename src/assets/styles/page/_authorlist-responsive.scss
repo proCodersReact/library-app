@@ -1,12 +1,9 @@
-
-
-
 @media screen and (min-width: 576px){
 
-  .book-list-title{
+  .author-list-title{
     font-size: $area-title-font-size-extra-small;
   }
-  .add-book-title {
+  .add-author-title {
     font-size: $form-title-text-size-extra-small;
   }
   .add-btn {
@@ -14,8 +11,8 @@
       font-size: $add-button-text-size-extra-small;
     }
   }
-  .book {
-    .book-text {
+  .author {
+    .author-text {
       font-size: $area-text-font-size-extra-small;
     }
   }
@@ -34,10 +31,10 @@
 }
 
 @media screen and (max-width: 576px){
-  .book-list-title{
+  .author-list-title{
     font-size: $area-title-font-size-small;
   }
-  .add-book-title {
+  .add-author-title {
     font-size: $form-title-text-size-small;
   }
   .add-btn {
@@ -45,8 +42,8 @@
       font-size: $add-button-text-size-small;
     }
   }
-  .book {
-    .book-text {
+  .author {
+    .author-text {
       font-size: $area-text-font-size-small;
     }
   }
@@ -66,10 +63,10 @@
 
 
 @media screen and (max-width: 768px){
-  .book-list-title{
+  .author-list-title{
     font-size: $area-title-font-size-medium;
   }
-  .add-book-title {
+  .add-author-title {
     font-size: $form-title-text-size-medium;
   }
   .add-btn {
@@ -77,8 +74,8 @@
       font-size: $add-button-text-size-medium;
     }
   }
-  .book {
-    .book-text {
+  .author {
+    .author-text {
       font-size: $area-text-font-size-medium;
     }
   }
@@ -98,10 +95,10 @@
 
 
 @media screen and (max-width: 992px){
-  .book-list-title{
+  .author-list-title{
     font-size: $area-title-font-size-large;
   }
-  .add-book-title {
+  .add-author-title {
     font-size: $form-title-text-size-large;
   }
   .add-btn {
@@ -109,8 +106,8 @@
       font-size: $add-button-text-size-large;
     }
   }
-  .book {
-    .book-text {
+  .author {
+    .author-text {
       font-size: $area-text-font-size-large;
     }
   }
@@ -129,10 +126,10 @@
 }
 
 @media screen and (max-width: 1200px){
-  .book-list-title{
+  .author-list-title{
     font-size: $area-title-font-size-extra-large;
   }
-  .add-book-title {
+  .add-author-title {
     font-size: $form-title-text-size-extra-large;
   }
   .add-btn {
@@ -140,8 +137,8 @@
       font-size: $add-button-text-size-extra-large;
     }
   }
-  .book {
-    .book-text {
+  .author {
+    .author-text {
       font-size: $area-text-font-size-extra-large;
     }
   }
