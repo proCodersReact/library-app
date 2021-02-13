@@ -1,0 +1,50 @@
+.custom-ui-update {
+  background-color: #f6f7f8;
+  border-radius: 15px;
+  width: 50vw;
+
+  .notifier-header {
+    background-color: #fdc901;
+    border-radius: 15px 15px 0 0;
+
+    h1 {
+      font-size: 1.2em;
+      color: black;
+    }
+
+    .confirm-close-btn:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .custom-ui-update {
+    .notifier-header {
+      font-size: 0.8em;
+    }
+
+    .confirm-msg {
+      font-size: 0.7em;
+    }
+
+    .confirm-btn {
+      Button {
+        font-size: 0.7em;
+      }
+
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .custom-ui-update {
+    width: 40vw;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .custom-ui-update {
+    width: 30vw;
+  }
+}

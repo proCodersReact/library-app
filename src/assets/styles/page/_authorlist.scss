@@ -1,15 +1,10 @@
-.book-list-title {
-  color: $area-title-color;
+.author-list-title {
+  color: #2c3339;
   border-bottom: 2px solid #27313a;
   font-size: $area-title-font-size;
 }
 
-.book-title {
-  color: #2d3235;
-  font-weight: 500;
-}
-
-.add-book-title {
+.add-author-title {
   color: #00503f;
   border-bottom: 2.25px solid #00503f;
   font-size: $form-title-text-size;
@@ -17,15 +12,12 @@
 }
 
 .add-btn {
-  Button {
-    font-size: $add-button-text-size;
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-
+  font-size: 0.75em;
+  font-weight: 500;
+  background-color: #fdfdfe;
 }
 
-.book {
+.author {
   .btn-options {
     display: none;
 
@@ -42,27 +34,15 @@
     }
   }
 
-  .book-text {
+  .author-text {
     font-size: $area-text-font-size;
     font-weight: 500;
     color: $area-text-font-color;
   }
 }
 
-.empty-msg {
-  font-size: 0.75em;
-  color: #636565;
-  font-weight: 500;
-}
-
 .label {
-  font-size: 0.6rem;
-}
-
-.create-btn {
-  background-color: #03589b;
-  padding: 2px 20px;
-  border-radius: 6px;
+  font-size: $form-label-text-size;
 }
 
 .close-btn {
@@ -73,7 +53,7 @@
   p {
     margin: 0;
     color: #bf1650;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   p::before {
@@ -88,12 +68,12 @@
   border-radius: 0;
 }
 
-.form-control:focus {
-  box-shadow: 0 0 10px #bfdaff;
-  border: 2px solid #84b2ff;
+.create-btn {
+  background-color: #03589b;
+  padding: 2px 20px;
+  border-radius: 6px;
 }
 
-
-.book-name-input {
+.author-name-input {
   padding-left: 12px;
 }
