@@ -56,7 +56,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                       {props.onAuthorToUpdate && "Update Author"}
                   </span>
                 </Col>
-                <Col className='close-btn text-right p-0 m-0 px-md-4 px-0' xs={6}>
+                <Col className='close-btn text-right pt-2 m-0 px-md-4 px-0' xs={6}>
                     <XCircle color="#363636" onClick={props.onClose}/>
                 </Col>
             </Row>
@@ -97,7 +97,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                     <Button
                         type={"submit"}
                         variant={"primary"}
-                        size={"sm"}
+                        size={"lg"}
                         className={"create-btn"}
                     >
                         {!props.onAuthorToUpdate && "Create"}

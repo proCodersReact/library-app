@@ -188,7 +188,7 @@ const BookForm: React.FC<BookFormProps> = (props) => {
                         {onBookToUpdate && "Update Book"}
                     </span>
                 </Col>
-                <Col className='close-btn text-right p-0 m-0 px-md-4 px-0' xs={6}>
+                <Col className='close-btn text-right pt-2 m-0 px-md-4 px-0' xs={6}>
                     <XCircle color='#363636' onClick={onClose}/>
                 </Col>
             </Row>
@@ -272,7 +272,7 @@ const BookForm: React.FC<BookFormProps> = (props) => {
                     </Form.Row>
                 </Form.Group>
                 <Col className='text-right mb-3 p-0' xs={12}>
-                    <Button variant="primary" size="sm" className='create-btn' type='submit'>
+                    <Button variant="primary" size="lg" className='create-btn' type='submit'>
                         {!onBookToUpdate && "Create"}
                         {onBookToUpdate && "Update"}
                     </Button>

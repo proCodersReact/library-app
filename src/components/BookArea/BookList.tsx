@@ -15,7 +15,7 @@ const BookList:React.FC<BookListProps> = (props) =>{
             return <p className='empty-msg m-0 p-0 mx-1 pt-1'><i>No books listed here</i></p>
         }
         return (
-            <Row className={'p-0 m-0 mt-2 mb-1'}>
+            <Row className={'p-0 m-0 mt-4 mb-4'}>
                 <Col className={'p-0 m-0'}>
                     {props.books.map((book:IBook, Index:number) => {
                         return <Book book={book} key={Index} index={Index} onDeleted={props.onDeleted} onUpdateRequest={props.onUpdateRequested}/>

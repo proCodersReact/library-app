@@ -3,15 +3,18 @@
 .welcome-area{
   .title{
     font-weight: 650;
-    font-size: 2rem;
+    font-size: 2.9rem;
   }
   Image{
     max-width: 100%;
     height: auto;
   }
   .credit{
-    font-size: 0.9rem;
     margin: 0;
+    span{
+      font-size: 1.1em;
+      font-weight: 500;
+    }
   }
 }
 

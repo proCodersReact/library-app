@@ -2,14 +2,18 @@
 
 @import "~bootstrap/scss/bootstrap";
 
+@import "variables/variables";
+
 @import "theme/theme";
 
 @import "page/reading-area";
 
 @import "page/booklist";
+@import "page/booklist-responsive";
 
 @import "page/authors";
 
 @import"utils/confirmation-alert-update";
 
 @import"utils/confirmation-alert-delete";
+

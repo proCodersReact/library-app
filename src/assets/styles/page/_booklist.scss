@@ -1,7 +1,7 @@
 .book-list-title {
-  color: #2c3339;
+  color: $area-title-color;
   border-bottom: 2px solid #27313a;
-  font-size: 1.5em;
+  font-size: $area-title-font-size;
 }
 
 .book-title {
@@ -12,13 +12,15 @@
 .add-book-title {
   color: #00503f;
   border-bottom: 2.25px solid #00503f;
-  font-size: 1rem;
+  font-size: $form-title-text-size;
+  font-weight: 500;
 }
 
 .add-btn {
   Button {
-    font-size: 1em;
+    font-size: $add-button-text-size;
     font-weight: 500;
+    margin-bottom: 20px;
   }
 
 }
@@ -41,8 +43,9 @@
   }
 
   .book-text {
-    font-size: 0.9em;
+    font-size: $area-text-font-size;
     font-weight: 500;
+    color: $area-text-font-color;
   }
 }
 

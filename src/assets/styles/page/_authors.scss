@@ -7,7 +7,8 @@
 .add-author-title {
   color: #00503f;
   border-bottom: 2.25px solid #00503f;
-  font-size: 1rem;
+  font-size: $form-title-text-size;
+  font-weight: 500;
 }
 
 .add-btn {
@@ -34,8 +35,9 @@
   }
 
   .author-text {
-    font-size: 0.9em;
+    font-size: $area-text-font-size;
     font-weight: 500;
+    color: $area-text-font-color;
   }
 }
 
@@ -68,7 +70,8 @@
 
 .create-btn {
   background-color: #03589b;
-  padding: 2px 20px;
+  padding: 3px 25px;
+  font-size: 1em;
 }
 
 .author-name-input {

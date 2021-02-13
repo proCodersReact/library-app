@@ -18,7 +18,7 @@ const AuthorList:React.FC<AuthorsListProps> = (props) =>{
             return <p className='empty-msg m-0 p-0 mx-1 pt-1'><i>No authors listed here</i></p>
         }
         return (
-            <Row className={'p-0 m-0 mt-2 mb-1'}>
+            <Row className={'p-0 m-0 mt-4 mb-4'}>
                 <Col className={'p-0 m-0'}>
                     {authors.map((author: IAuthor, Index: number) => {
                         return <Author author={author}

@@ -5,8 +5,8 @@ import welcomeAreaImg from "../assets/images/WelcomeAreaImg.jpg";
 
 const ReadingArea: React.FC = () => {
     return(
-        <Row xs={12}>
-            <Col as={"h1"} xs={12} className='title text-center p-0 my-2'>
+        <Row xs={12} className="mb-2">
+            <Col as={"h1"} xs={12} className='title text-center p-0 mt-2 mb-3'>
                 My Library
             </Col>
             <Col as={"img"} src={welcomeAreaImg} xs={12} className='p-0'></Col>

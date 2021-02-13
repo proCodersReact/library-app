@@ -9,7 +9,7 @@ type CreateBookProps = {
 const CreateBook: React.FC<CreateBookProps> = (props) => {
     return (
         <Row className='mx-0 mt-3 mb-4 add-btn'>
-            <Button variant='light' className="text-right p-0 flex-row" onClick={props.onClickCreate}><Plus size={21} color='#234479'/>   Add Author</Button>
+            <Button variant='light' className="text-right p-0 flex-row" onClick={props.onClickCreate}><Plus size={21} color='#234479'/>   Add Book</Button>
         </Row>
     );
 };
