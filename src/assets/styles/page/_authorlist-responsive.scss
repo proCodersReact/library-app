@@ -1,34 +1,4 @@
-@media screen and (min-width: 576px){
 
-  .author-list-title{
-    font-size: $area-title-font-size-extra-small;
-  }
-  .add-author-title {
-    font-size: $form-title-text-size-extra-small;
-  }
-  .add-btn {
-    Button {
-      font-size: $add-button-text-size-extra-small;
-    }
-  }
-  .author {
-    .author-text {
-      font-size: $area-text-font-size-extra-small;
-    }
-  }
-  .empty-msg {
-    font-size: $empty-msg-font-size-extra-small;
-  }
-
-  .label {
-    font-size: $form-label-text-size-extra-small;
-  }
-  .warning {
-    p {
-      font-size: $form-warning-text-size-extra-small;
-    }
-  }
-}
 
 @media screen and (max-width: 576px){
   .author-list-title{

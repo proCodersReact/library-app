@@ -3,7 +3,7 @@
 .welcome-area{
   .title{
     font-weight: 650;
-    font-size: 2.9rem;
+    font-size: $welcome-area-title-font-size;
   }
   Image{
     max-width: 100%;

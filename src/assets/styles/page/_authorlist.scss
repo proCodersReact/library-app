@@ -1,7 +1,7 @@
 .author-list-title {
   color: #2c3339;
   border-bottom: 2px solid #27313a;
-  font-size: 1.5em;
+  font-size: $area-title-font-size;
 }
 
 .add-author-title {
@@ -35,7 +35,7 @@
   }
 
   .author-text {
-    font-size: 1em;
+    font-size: $area-text-font-size;
     font-weight: 500;
     color: $area-text-font-color;
   }
