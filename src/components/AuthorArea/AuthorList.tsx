@@ -15,10 +15,10 @@ const AuthorList: React.FC<AuthorsListProps> = (props) => {
 
     const renderAuthors = () => {
         if (authors.length === 0) {
-            return <p className='empty-msg m-0 p-0 mx-1 pt-1 mb-3 mb-sm-4'><i>No authors listed here</i></p>
+            return <p className='empty-msg m-0 p-0 mx-1 pt-1 mb-2 mb-sm-1'><i>No authors listed here</i></p>
         }
         return (
-            <Row className={'p-0 m-0 mt-4 mb-3 mb-sm-3 mb-md-4'}>
+            <Row className={'p-0 m-0 mt-2 mt-md-4 mb-2 mb-sm-2 mb-md-3'}>
                 <Col className={'p-0 m-0'}>
                     {authors.map((author: IAuthor, Index: number) => {
                         return <Author author={author}
