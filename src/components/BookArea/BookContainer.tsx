@@ -11,7 +11,7 @@ type BookContainerProps = {
     authors: IAuthor[],
 }
 
-const BookContainer: React.FC <BookContainerProps> = (props) => {
+const BookContainer: React.FC<BookContainerProps> = (props) => {
 
     const {authors} = props;
     const initBooks: IBook[] = [];
@@ -58,12 +58,14 @@ const BookContainer: React.FC <BookContainerProps> = (props) => {
     }
 
     return (
-        <Container fluid={true} className={"books"}>
+        <Container fluid={true} className={"books p-0"}>
             <BookWelcome/>
-            <BookList books={books} onDeleted={handleBookDeleted} onUpdateRequested={handleOnUpdateRequest} />
+            <BookList books={books} onDeleted={handleBookDeleted} onUpdateRequested={handleOnUpdateRequest}/>
             <CreateBook onClickCreate={handleOnCreateClick}/>
             {isFormVisible &&
-            <BookForm onClose={handleOnFormClosed} authorList={authors} onBookAdded={handleBookAdded} onBookToUpdate={bookToUpdate} onBookUpdated={handleOnBookUpdated} updateBookIndex={updateBookIndex}/>}
+            <BookForm onClose={handleOnFormClosed} authorList={authors} onBookAdded={handleBookAdded}
+                      onBookToUpdate={bookToUpdate} onBookUpdated={handleOnBookUpdated}
+                      updateBookIndex={updateBookIndex}/>}
         </Container>
     );
 };

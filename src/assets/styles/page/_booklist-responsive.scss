@@ -1,5 +1,5 @@
-@media screen and (min-width: 100px){
-  .book-list-title{
+@media screen and (min-width: 100px) {
+  .book-list-title {
     font-size: $area-title-font-size-extra-small;
   }
   .add-book-title {
@@ -16,7 +16,7 @@
     }
   }
   .empty-msg {
-    font-size:$empty-msg-font-size-extra-small;
+    font-size: $empty-msg-font-size-extra-small;
   }
 
   .label {
@@ -30,10 +30,8 @@
 }
 
 
-
-
-@media screen and (min-width: 576px){
-  .book-list-title{
+@media screen and (min-width: 576px) {
+  .book-list-title {
     font-size: $area-title-font-size-small;
   }
   .add-book-title {
@@ -50,7 +48,7 @@
     }
   }
   .empty-msg {
-    font-size:$empty-msg-font-size-small;
+    font-size: $empty-msg-font-size-small;
   }
 
   .label {
@@ -64,8 +62,8 @@
 }
 
 
-@media screen and (min-width: 768px){
-  .book-list-title{
+@media screen and (min-width: 768px) {
+  .book-list-title {
     font-size: $area-title-font-size-medium;
   }
   .add-book-title {
@@ -96,8 +94,8 @@
 }
 
 
-@media screen and (min-width: 992px){
-  .book-list-title{
+@media screen and (min-width: 992px) {
+  .book-list-title {
     font-size: $area-title-font-size-large;
   }
   .add-book-title {
@@ -127,8 +125,8 @@
   }
 }
 
-@media screen and (min-width: 1200px){
-  .book-list-title{
+@media screen and (min-width: 1200px) {
+  .book-list-title {
     font-size: $area-title-font-size-extra-large;
   }
   .add-book-title {

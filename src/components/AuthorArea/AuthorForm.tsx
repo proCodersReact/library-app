@@ -1,8 +1,8 @@
-import React, { useEffect} from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
-import { IAuthor } from "../../assets/types/LibraryTypes";
-import { XCircle } from "react-feather";
-import { useForm, Controller } from "react-hook-form";
+import React, {useEffect} from "react";
+import {Row, Col, Form, Button} from "react-bootstrap";
+import {IAuthor} from "../../assets/types/LibraryTypes";
+import {XCircle} from "react-feather";
+import {useForm, Controller} from "react-hook-form";
 import _ from "lodash/fp";
 import handleOnUpdateAuthor from "../../assets/utils/handleOnUpdateAuthor";
 
@@ -19,9 +19,7 @@ type CreateFormProps = {
 };
 
 const AuthorForm: React.FC<CreateFormProps> = (props) => {
-    const {handleSubmit, control, errors, setValue} = useForm<
-        FormData
-        >();
+    const {handleSubmit, control, errors, setValue} = useForm<FormData>();
     useEffect(() => {
         if (!props.onAuthorToUpdate) {
             setValue("authorName", "");
@@ -48,7 +46,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
     };
 
     return (
-        <Col className='p-0 px-1 mr-1' xl={7} lg={8} md={10} sm={12}>
+        <Col className='p-0 px-1 mr-1 mt-lg-2' xl={8} lg={9} md={11} sm={12}>
             <Row className="px-0 mx-0 pb-1 mb-3">
                 <Col className={'p-0'} xs={6}>
                   <span className="add-author-title pt-2">
@@ -56,17 +54,17 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                       {props.onAuthorToUpdate && "Update Author"}
                   </span>
                 </Col>
-                <Col className='close-btn text-right pt-2 m-0 px-md-4 px-0' xs={6}>
-                    <XCircle color="#363636" onClick={props.onClose}/>
+                <Col className='close-btn text-right p-0 m-0 px-md-4 px-0' xs={6}>
+                    <XCircle color="#363636" size={22} onClick={props.onClose}/>
                 </Col>
             </Row>
             <Form className='px-0 mx-0 px-md-4 px-0' onSubmit={handleSubmit(handleOnCreate)}>
                 <Form.Group>
                     <Form.Row className={'px-0 mx-0'}>
-                        <Form.Label column="sm" xs={5} className="label p-0 pl-1 pb-1">
+                        <Form.Label column="sm" xs={5} className="label p-0 pl-1 pb-1 pb-lg-0">
                             Name of Author
                         </Form.Label>
-                        <Form.Label column="sm" xs={7} className="warning text-right p-0 pr-1 pt-1">
+                        <Form.Label column="sm" xs={7} className="warning text-right p-0 pr-1 pt-1 pt-lg-2">
                             {_.get("authorName.type", errors) === "required" && (
                                 <p>This field is required</p>
                             )}
@@ -97,7 +95,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
                     <Button
                         type={"submit"}
                         variant={"primary"}
-                        size={"lg"}
+                        size={"sm"}
                         className={"create-btn"}
                     >
                         {!props.onAuthorToUpdate && "Create"}

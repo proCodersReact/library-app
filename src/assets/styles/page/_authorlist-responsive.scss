@@ -1,5 +1,5 @@
-@media screen and (min-width: 100px){
-  .author-list-title{
+@media screen and (min-width: 100px) {
+  .author-list-title {
     font-size: $area-title-font-size-extra-small;
   }
   .add-author-title {
@@ -16,7 +16,7 @@
     }
   }
   .empty-msg {
-    font-size:$empty-msg-font-size-extra-small;
+    font-size: $empty-msg-font-size-extra-small;
   }
 
   .label {
@@ -29,8 +29,8 @@
   }
 }
 
-@media screen and (min-width: 576px){
-  .author-list-title{
+@media screen and (min-width: 576px) {
+  .author-list-title {
     font-size: $area-title-font-size-small;
   }
   .add-author-title {
@@ -47,7 +47,7 @@
     }
   }
   .empty-msg {
-    font-size:$empty-msg-font-size-small;
+    font-size: $empty-msg-font-size-small;
   }
 
   .label {
@@ -61,8 +61,8 @@
 }
 
 
-@media screen and (min-width: 768px){
-  .author-list-title{
+@media screen and (min-width: 768px) {
+  .author-list-title {
     font-size: $area-title-font-size-medium;
   }
   .add-author-title {
@@ -93,8 +93,8 @@
 }
 
 
-@media screen and (min-width: 992px){
-  .author-list-title{
+@media screen and (min-width: 992px) {
+  .author-list-title {
     font-size: $area-title-font-size-large;
   }
   .add-author-title {
@@ -122,10 +122,15 @@
       font-size: $form-warning-text-size-large;
     }
   }
+  .create-btn {
+    background-color: #03589b;
+    padding: 2px 20px;
+    border-radius: 6px;
+  }
 }
 
-@media screen and (min-width: 1200px){
-  .author-list-title{
+@media screen and (min-width: 1200px) {
+  .author-list-title {
     font-size: $area-title-font-size-extra-large;
   }
   .add-author-title {

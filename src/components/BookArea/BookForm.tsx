@@ -4,7 +4,7 @@ import {XCircle} from "react-feather";
 import Select from 'react-select'
 import {Controller, useForm} from "react-hook-form";
 import _ from "lodash/fp";
-import handleOnUpdateBook from "../../assets/utils/HandleOnUpdateBook";
+import handleOnUpdateBook from "../../assets/utils/handleOnUpdateBook";
 import NumberFormat from 'react-number-format';
 import {IAuthor, IBook} from "../../assets/types/LibraryTypes";
 
@@ -33,7 +33,7 @@ const customStyles = {
         padding: 0,
         margin: 0,
         paddingTop: '3px',
-        paddingLeft:'6px',
+        paddingLeft: '6px',
         height: '28px',
     }),
     indicatorsContainer: (provided: any) => ({
@@ -84,7 +84,7 @@ const customStyles = {
         minHeight: '1px',
         height: '30px',
         paddingTop: '3px',
-        paddingLeft:'8px',
+        paddingLeft: '8px',
         fontSize: '0.8em',
     }),
     list: (provided: any) => ({
@@ -97,7 +97,7 @@ const customStyles = {
         fontSize: '0.8em',
         height: '30px',
         paddingTop: '3px',
-        paddingLeft:'6px',
+        paddingLeft: '6px',
     }),
     noOptionsMessage: (provided: any) => ({
         ...provided,
@@ -180,7 +180,7 @@ const BookForm: React.FC<BookFormProps> = (props) => {
     }
 
     return (
-        <Col className='p-0 px-1 mr-1' xl={7} lg={8} md={10} sm={12}>
+        <Col className='p-0 px-1 mr-1 mt-lg-2' xl={8} lg={9} md={11} sm={12}>
             <Row className='px-0 mx-0 pb-1 mb-3'>
                 <Col className={'p-0'} xs={6}>
                     <span className='add-book-title pt-2'>
@@ -188,17 +188,17 @@ const BookForm: React.FC<BookFormProps> = (props) => {
                         {onBookToUpdate && "Update Book"}
                     </span>
                 </Col>
-                <Col className='close-btn text-right pt-2 m-0 px-md-4 px-0' xs={6}>
-                    <XCircle color='#363636' onClick={onClose}/>
+                <Col className='close-btn text-right p-0 m-0 px-md-4 px-0' xs={6}>
+                    <XCircle color='#363636' size={22} onClick={onClose}/>
                 </Col>
             </Row>
             <Form className='px-0 mx-0 px-md-4 px-0' onSubmit={handleSubmit(handleOnCreate)}>
                 <Form.Group>
                     <Form.Row className={'px-0 mx-0'}>
-                        <Form.Label column="sm" xs={4} className='label p-0 pl-1 pb-1'>
+                        <Form.Label column="sm" xs={4} className='label p-0 pl-1 pb-1 pb-lg-0'>
                             Title of Book
                         </Form.Label>
-                        <Form.Label column="sm" xs={8} className="warning text-right p-0 pr-1 pt-1">
+                        <Form.Label column="sm" xs={8} className="warning text-right p-0 pr-1 pt-1 pt-lg-2">
                             {_.get("bookName.type", errors) === "required" && (
                                 <p>This field is required</p>
                             )}
@@ -219,10 +219,10 @@ const BookForm: React.FC<BookFormProps> = (props) => {
                                 }}
                             />
                         </Col>
-                        <Form.Label column="sm" xs={3} className='label p-0 pl-1 pb-1'>
+                        <Form.Label column="sm" xs={3} className='label p-0 pl-1 pb-1 pb-lg-0'>
                             Price
                         </Form.Label>
-                        <Form.Label column="sm" xs={9} className="warning text-right p-0 pr-1 pt-1">
+                        <Form.Label column="sm" xs={9} className="warning text-right p-0 pr-1 pt-1 pt-lg-2">
                             {_.get("bookISBN.type", errors) === "required" && (
                                 <p>This field is required</p>
                             )}
@@ -238,10 +238,10 @@ const BookForm: React.FC<BookFormProps> = (props) => {
                                 }}
                             />
                         </Col>
-                        <Form.Label column="sm" xs={3} className='label p-0 pl-1 pb-1'>
+                        <Form.Label column="sm" xs={3} className='label p-0 pl-1 pb-1 pb-lg-0 '>
                             Author
                         </Form.Label>
-                        <Form.Label column="sm" xs={9} className="warning text-right p-0 pr-1 pt-1">
+                        <Form.Label column="sm" xs={9} className="warning text-right p-0 pr-1 pt-1 pt-lg-2">
                             {_.get("bookAuthor.type", errors) === "required" && (
                                 <p>This field is required</p>
                             )}
@@ -272,7 +272,7 @@ const BookForm: React.FC<BookFormProps> = (props) => {
                     </Form.Row>
                 </Form.Group>
                 <Col className='text-right mb-3 p-0' xs={12}>
-                    <Button variant="primary" size="lg" className='create-btn' type='submit'>
+                    <Button variant="primary" size="sm" className='create-btn' type='submit'>
                         {!onBookToUpdate && "Create"}
                         {onBookToUpdate && "Update"}
                     </Button>

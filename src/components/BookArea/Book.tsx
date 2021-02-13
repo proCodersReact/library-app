@@ -20,12 +20,12 @@ const Book: React.FC<BookProps> = (props) => {
             </Col>
             <Col xs={4} className='p-0 justify-content-end btn-options pr-3'>
                 <Col xs={1} className='text-warning clickBtn'>
-                    <Edit size='24'
+                    <Edit size='20'
                           onClick={() => onUpdateRequest(index)}
                     />
                 </Col>
-                <Col xs={1} className='text-danger clickBtn mx-2'>
-                    <Trash2 size='24'
+                <Col xs={1} className='text-danger clickBtn'>
+                    <Trash2 size='20'
                             onClick={() => handleOnDelete(index, onDeleted)}
                     />
                 </Col>
