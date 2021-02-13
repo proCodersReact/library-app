@@ -1,6 +1,6 @@
 
 
-@media screen and (max-width: 576px){
+@media screen and (min-width: 576px){
   .author-list-title{
     font-size: $area-title-font-size-small;
   }
@@ -32,7 +32,7 @@
 }
 
 
-@media screen and (max-width: 768px){
+@media screen and (min-width: 768px){
   .author-list-title{
     font-size: $area-title-font-size-medium;
   }
@@ -64,9 +64,9 @@
 }
 
 
-@media screen and (max-width: 992px){
+@media screen and (min-width: 992px){
   .author-list-title{
-    font-size: $area-title-font-size-large;
+    font-size: 3em;
   }
   .add-author-title {
     font-size: $form-title-text-size-large;
@@ -95,7 +95,7 @@
   }
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (min-width: 1200px){
   .author-list-title{
     font-size: $area-title-font-size-extra-large;
   }
