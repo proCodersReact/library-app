@@ -7,11 +7,11 @@ import CreateAuthor from "./CreateAuthor";
 import {IAuthor} from "../../assets/types/LibraryTypes";
 
 type AuthorsListProps = {
-    authors: IAuthor[]
-    setAuthors: any
+    authors: IAuthor[];
+    setAuthors: (newAuthors: IAuthor[]) => void;
 }
-const AuthorContainer: React.FC<AuthorsListProps> = (Prop: any) => {
-    const {authors, setAuthors} = Prop;
+const AuthorContainer: React.FC<AuthorsListProps> = (props) => {
+    const {authors, setAuthors} = props;
     const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
     const [authorToUpdate, setAuthorToUpdate] = useState<IAuthor | null>(null);
     const [updateAuthorIndex, setUpdateAuthorIndex] = useState<number | null>(null)
@@ -57,7 +57,7 @@ const AuthorContainer: React.FC<AuthorsListProps> = (Prop: any) => {
     }
 
     return (
-        <Container fluid={true} className={"authors p-0"}>
+        <Container fluid={true} className={"authors px-lg-4"}>
             <AuthorWelcome/>
             <AuthorList authors={authors} onDeleted={handleAuthorDeleted}
                         onUpdateRequested={handleOnUpdateRequest}/>

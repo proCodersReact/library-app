@@ -158,5 +158,12 @@
       font-size: $form-warning-text-size-extra-large;
     }
   }
+  .create-btn {
+    margin-top: 10px;
+    width: 130px;
+    height: 40px;
+    font-size: $create-btn-text-size-extra-large;
+    border-radius: 6px;
+  }
 }
 

@@ -28,7 +28,7 @@ const BookContainer: React.FC<BookContainerProps> = (props) => {
     }, [bookToUpdate]);
 
     const handleOnCreateClick = () => {
-        setIsFormVisible(!isFormVisible);
+        setIsFormVisible(true);
         setBookToUpdate(null)
     }
     const handleOnFormClosed = () => {
@@ -58,7 +58,7 @@ const BookContainer: React.FC<BookContainerProps> = (props) => {
     }
 
     return (
-        <Container fluid={true} className={"books p-0"}>
+        <Container fluid={true} className={"books px-lg-4"}>
             <BookWelcome/>
             <BookList books={books} onDeleted={handleBookDeleted} onUpdateRequested={handleOnUpdateRequest}/>
             <CreateBook onClickCreate={handleOnCreateClick}/>

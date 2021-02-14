@@ -4,110 +4,11 @@ import {XCircle} from "react-feather";
 import Select from 'react-select'
 import {Controller, useForm} from "react-hook-form";
 import _ from "lodash/fp";
-import handleOnUpdateBook from "../../assets/utils/handleOnUpdateBook";
+import handleOnUpdateBook from "../utils/handleOnUpdateBook";
 import NumberFormat from 'react-number-format';
 import {IAuthor, IBook} from "../../assets/types/LibraryTypes";
+import {customStyles} from "../../assets/Constants/ReactSelectCustomStyle";
 
-const customStyles = {
-    container: (provided: any) => ({
-        ...provided,
-        minHeight: '1px',
-        textAlign: 'left',
-        padding: 0,
-        margin: 0,
-        border: 'none',
-    }),
-    control: (provided: any) => ({
-        ...provided,
-        border: '2px solid #cdcdcd',
-        borderRadius: '0',
-        padding: "0",
-        margin: 0,
-        minHeight: '1px',
-        height: '30px',
-    }),
-    input: (provided: any) => ({
-        ...provided,
-        fontSize: "0.8em",
-        minHeight: '1px',
-        padding: 0,
-        margin: 0,
-        paddingTop: '3px',
-        paddingLeft: '6px',
-        height: '28px',
-    }),
-    indicatorsContainer: (provided: any) => ({
-        ...provided,
-        height: '25px',
-    }),
-
-    indicatorSeparator: (provided: any) => ({
-        ...provided,
-        margin: '4px 3px 0 0',
-        width: '2px',
-        minHeight: "10px",
-        height: '18px',
-    }),
-    dropdownIndicator: (provided: any) => ({
-        ...provided,
-        minHeight: '1px',
-        padding: 0,
-        margin: 0,
-        marginBottom: '2px',
-        marginRight: '4px',
-        color: '#b8b6b6',
-        width: '15px',
-        height: '15px',
-    }),
-    clearIndicator: (provided: any) => ({
-        ...provided,
-        color: '#b8b6b6',
-        minHeight: '1px',
-        padding: 0,
-        margin: 0,
-        marginBottom: '2px',
-        marginRight: '4px',
-        height: '15px',
-        width: '15px',
-    }),
-    valueContainer: (provided: any) => ({
-        ...provided,
-        padding: 0,
-        paddingLeft: '2px',
-        margin: 1,
-        minHeight: '1px',
-        height: '30px',
-        paddingTop: '2px',
-    }),
-    singleValue: (provided: any) => ({
-        ...provided,
-        minHeight: '1px',
-        height: '30px',
-        paddingTop: '3px',
-        paddingLeft: '8px',
-        fontSize: '0.8em',
-    }),
-    list: (provided: any) => ({
-        ...provided,
-        height: '20px',
-        fontSize: '0.8em',
-    }),
-    placeholder: (provided: any) => ({
-        ...provided,
-        fontSize: '0.8em',
-        height: '30px',
-        paddingTop: '3px',
-        paddingLeft: '6px',
-    }),
-    noOptionsMessage: (provided: any) => ({
-        ...provided,
-        fontSize: '0.8em'
-    }),
-    option: (provided: any) => ({
-        ...provided,
-        fontSize: '0.8em',
-    }),
-};
 
 type BookFormProps = {
     onClose: () => void;
@@ -180,7 +81,7 @@ const BookForm: React.FC<BookFormProps> = (props) => {
     }
 
     return (
-        <Col className='p-0 px-1 mr-1 mt-lg-2' xl={8} lg={9} md={11} sm={12}>
+        <Col className='p-0 px-1 mr-1 mt-lg-2' xl={8} lg={9} md={12} sm={12}>
             <Row className='px-0 mx-0 pb-1 mb-3'>
                 <Col className={'p-0'} xs={6}>
                     <span className='add-book-title pt-2'>
@@ -189,7 +90,7 @@ const BookForm: React.FC<BookFormProps> = (props) => {
                     </span>
                 </Col>
                 <Col className='close-btn text-right p-0 m-0 px-md-4 px-0' xs={6}>
-                    <XCircle color='#363636' size={22} onClick={onClose}/>
+                    <XCircle color='#363636' size={24} onClick={onClose}/>
                 </Col>
             </Row>
             <Form className='px-0 mx-0 px-md-4 px-0' onSubmit={handleSubmit(handleOnCreate)}>
@@ -259,13 +160,6 @@ const BookForm: React.FC<BookFormProps> = (props) => {
                                 rules={{
                                     required: true
                                 }}
-                                theme={(theme: { colors: any; }) => ({
-                                    ...theme,
-                                    colors: {
-                                        ...theme.colors,
-                                        primary: 'rgba(60,123,235,0.5)',
-                                    },
-                                })}
                                 control={control}
                             />
                         </Col>

@@ -8,13 +8,20 @@ import BookContainer from "./components/BookArea/BookContainer";
 const ClientApp: React.FC = () => {
     const initAuthors: IAuthor[] = [];
     const [authors, setAuthors] = useState<IAuthor[]>(initAuthors);
+
+    const handleSetAuthors = (newAuthors:IAuthor[]) =>{
+        setAuthors(newAuthors)
+    }
+
+
+
     return (
         <Container className='welcome-area' fluid={true}>
             <ReadingArea/>
             <Row className='flex-column-reverse flex-sm-row'>
                 <Col sm={6} className='book-container-class'><BookContainer authors={authors}/></Col>
                 <Col sm={6} className='author-container-class'><AuthorContainer authors={authors}
-                                                                                setAuthors={setAuthors}/></Col>
+                                                                                setAuthors={handleSetAuthors}/></Col>
             </Row>
         </Container>
     )

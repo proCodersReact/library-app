@@ -2,19 +2,17 @@ import {confirmAlert} from "react-confirm-alert";
 import React from "react";
 import {Button, Col, Container, Row} from "react-bootstrap";
 import {Edit3, X} from "react-feather";
-import {IAuthor} from "../types/LibraryTypes";
+import {IBook} from "../../assets/types/LibraryTypes";
 
 
-const handleOnUpdateAuthor = (onAuthorUpdated: (updatedAuthor: IAuthor, index: number) => void,
-                              updatedAuthor: IAuthor,
-                              index: number,
-                              onUpdateClose: () => void,
-                              setValue: (name: "authorName",
-                                         value: unknown,
-                                         config?: (Partial<{
-                                             shouldValidate: boolean,
-                                             shouldDirty: boolean
-                                         }> | undefined)) => void) => {
+const handleOnUpdateBook = (onBookUpdated: (updatedBook: IBook, index: number) => void,
+                            updatedBook: IBook, index: number, onUpdateClose: () => void,
+                            setValue: (name: string,
+                                       value: unknown,
+                                       config?: (Partial<{
+                                           shouldValidate: boolean,
+                                           shouldDirty: boolean
+                                       }> | undefined)) => void) => {
     confirmAlert({
         customUI: ({onClose}) => {
             return (
@@ -54,8 +52,10 @@ const handleOnUpdateAuthor = (onAuthorUpdated: (updatedAuthor: IAuthor, index: n
                             <Button
                                 variant={'warning'}
                                 onClick={() => {
-                                    onAuthorUpdated(updatedAuthor, index);
-                                    setValue("authorName", "");
+                                    onBookUpdated(updatedBook, index);
+                                    setValue("bookName", "");
+                                    setValue("bookISBN", "");
+                                    setValue("bookAuthor", "");
                                     onUpdateClose();
                                     onClose();
                                 }}
@@ -71,4 +71,4 @@ const handleOnUpdateAuthor = (onAuthorUpdated: (updatedAuthor: IAuthor, index: n
     });
 }
 
-export default handleOnUpdateAuthor;
+export default handleOnUpdateBook;
