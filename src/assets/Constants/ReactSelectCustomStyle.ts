@@ -1,5 +1,7 @@
+import {CSSProperties} from "react";
+
 export const customStyles = {
-    container: (provided: any) => ({
+    container: (provided: CSSProperties) => ({
         ...provided,
         minHeight: '1px',
         textAlign: 'left',
@@ -7,7 +9,7 @@ export const customStyles = {
         margin: 0,
         border: 'none',
     }),
-    control: (provided: any) => ({
+    control: (provided: CSSProperties) => ({
         ...provided,
         border: '2px solid #cdcdcd',
         borderRadius: '0',
@@ -16,7 +18,7 @@ export const customStyles = {
         minHeight: '1px',
         height: '30px',
     }),
-    input: (provided: any) => ({
+    input: (provided: CSSProperties) => ({
         ...provided,
         fontSize: "0.8em",
         minHeight: '1px',
@@ -26,19 +28,19 @@ export const customStyles = {
         paddingLeft: '6px',
         height: '28px',
     }),
-    indicatorsContainer: (provided: any) => ({
+    indicatorsContainer: (provided: CSSProperties) => ({
         ...provided,
         height: '25px',
     }),
 
-    indicatorSeparator: (provided: any) => ({
+    indicatorSeparator: (provided: CSSProperties) => ({
         ...provided,
         margin: '4px 3px 0 0',
         width: '2px',
         minHeight: "10px",
         height: '18px',
     }),
-    dropdownIndicator: (provided: any) => ({
+    dropdownIndicator: (provided: CSSProperties) => ({
         ...provided,
         minHeight: '1px',
         padding: 0,
@@ -49,7 +51,7 @@ export const customStyles = {
         width: '15px',
         height: '15px',
     }),
-    clearIndicator: (provided: any) => ({
+    clearIndicator: (provided: CSSProperties) => ({
         ...provided,
         color: '#b8b6b6',
         minHeight: '1px',
@@ -60,7 +62,7 @@ export const customStyles = {
         height: '15px',
         width: '15px',
     }),
-    valueContainer: (provided: any) => ({
+    valueContainer: (provided: CSSProperties) => ({
         ...provided,
         padding: 0,
         paddingLeft: '2px',
@@ -69,7 +71,7 @@ export const customStyles = {
         height: '30px',
         paddingTop: '2px',
     }),
-    singleValue: (provided: any) => ({
+    singleValue: (provided: CSSProperties) => ({
         ...provided,
         minHeight: '1px',
         height: '30px',
@@ -77,23 +79,23 @@ export const customStyles = {
         paddingLeft: '8px',
         fontSize: '0.8em',
     }),
-    list: (provided: any) => ({
+    list: (provided: CSSProperties) => ({
         ...provided,
         height: '20px',
         fontSize: '0.8em',
     }),
-    placeholder: (provided: any) => ({
+    placeholder: (provided: CSSProperties) => ({
         ...provided,
         fontSize: '0.8em',
         height: '30px',
         paddingTop: '3px',
         paddingLeft: '6px',
     }),
-    noOptionsMessage: (provided: any) => ({
+    noOptionsMessage: (provided: CSSProperties) => ({
         ...provided,
         fontSize: '0.8em'
     }),
-    option: (provided: any) => ({
+    option: (provided: CSSProperties) => ({
         ...provided,
         fontSize: '0.8em',
     }),

@@ -46,7 +46,7 @@ const AuthorForm: React.FC<CreateFormProps> = (props) => {
     };
 
     return (
-        <Col className='p-0 px-1 mr-1 mt-lg-2' xl={8} lg={9} md={12} sm={12}>
+        <Col className='p-0 px-1 mr-1 mt-lg-2' xl={8} lg={10} md={11} sm={12}>
             <Row className="px-0 mx-0 pb-1 mb-3">
                 <Col className={'p-0'} xs={6}>
                   <span className="add-author-title pt-2">
