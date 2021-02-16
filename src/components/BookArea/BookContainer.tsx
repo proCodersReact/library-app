@@ -58,7 +58,7 @@ const BookContainer: React.FC<BookContainerProps> = (props) => {
     }
 
     return (
-        <Container fluid={true} className={"books px-lg-4"}>
+        <Container fluid={true} className={"books px-sm-1 px-xl-4"}>
             <BookWelcome/>
             <BookList books={books} onDeleted={handleBookDeleted} onUpdateRequested={handleOnUpdateRequest}/>
             <CreateBook onClickCreate={handleOnCreateClick}/>

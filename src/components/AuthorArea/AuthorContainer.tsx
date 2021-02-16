@@ -57,7 +57,7 @@ const AuthorContainer: React.FC<AuthorsListProps> = (props) => {
     }
 
     return (
-        <Container fluid={true} className={"authors px-lg-4"}>
+        <Container fluid={true} className={"authors px-sm-1 px-xl-4"}>
             <AuthorWelcome/>
             <AuthorList authors={authors} onDeleted={handleAuthorDeleted}
                         onUpdateRequested={handleOnUpdateRequest}/>
